@@ -3,7 +3,7 @@
 *}
 {block name='block_languages'}
     {if count($languages) > 1}
-        <div id="languages-block-top" class="languages-block-wrap nav-main-item-right hidden-xs pull-right">
+        <div id="languages-block-top" class="languages-block-wrap nav-main-item-right pull-right">
             <div class="lang-toggle-container">
                 {foreach from=$languages key=k item=language name=langLoop}
                     {assign var=indice_lang value=$language.id_lang}

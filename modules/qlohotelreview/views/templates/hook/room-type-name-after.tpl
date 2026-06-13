@@ -20,7 +20,7 @@
 * @license https://opensource.org/license/osl-3-0-php Open Software License version 3.0
 *}
 
-<div>
+<a href="#hotel-reviews" class="review-summary-link" style="text-decoration:none;display:inline-block;">
     <span class="raty readonly" data-score="{$avg_rating}"></span>
-    <span class="num_reviews">{$num_reviews} {if $num_reviews|intval > 1}{l s='Review(s)' mod='qlohotelreview'}{else}{l s='Review' mod='qlohotelreview'}{/if}</span>
-</div>
+    <span class="num_reviews">{$num_reviews} {if $num_reviews|intval > 1}{l s="Review(s)" mod="qlohotelreview"}{else}{l s="Review" mod="qlohotelreview"}{/if}</span>
+</a>

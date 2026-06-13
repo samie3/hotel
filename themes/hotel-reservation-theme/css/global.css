@@ -9334,3 +9334,85 @@ html[lang="ar"] .our_price_display {
 #center_column .page-content,
 #center_column .block-content { padding-top: 10px; padding-bottom: 10px; }
 .pb-left-column, .pb-right-column { padding-top: 8px; }
+/* Boss request: remove all underlines, subtle zoom on hover */
+a, a:hover, a:focus, a:active {
+    text-decoration: none !important;
+    outline: none;
+}
+a:hover {
+    transform: scale(1.02);
+    transition: transform 0.15s ease;
+}
+/* Boss request: bigger bolder transparent logo */
+#header_logo img {
+    max-height: 70px !important;
+    width: auto;
+    margin: 5px 0;
+}
+/* Boss: احجز الآن blue bold */
+.book_now_submit, .exclusive.book_now_submit {
+    background: #2563eb !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+}
+.book_now_submit:hover {
+    background: #1d4ed8 !important;
+}
+/* Footer link lighter color */
+.footer-container a, #footer a, .footer a {
+    color: #999 !important;
+    font-size: 13px !important;
+}
+.footer-container a:hover {
+    color: #c9a96e !important;
+}
+/* TikTok icon styling */
+.social .tiktok a, .social li.tiktok a {
+    background: #000;
+    color: #fff;
+}
+.social .tiktok a:hover {
+    background: #25F4EE;
+    color: #000;
+}
+/* Payment icons - unified size */
+.footer-payment-block img {
+    height: 40px !important;
+    width: auto !important;
+    margin: 5px 8px !important;
+    border-radius: 4px;
+    object-fit: contain;
+}
+/* Hide restaurant and transportation tabs for now */
+    display: none !important;
+}
+/* Hamburger menu close button - make visible and working */
+.close_navbar {
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    font-size: 24px !important;
+    color: #333 !important;
+    padding: 10px !important;
+    display: block !important;
+}
+.close_navbar:hover {
+    color: #c9a96e !important;
+}
+/* Force menu to hide when menu_cont_right is applied */
+#menu_cont.menu_cont_right {
+    display: none !important;
+}
+#menu_cont.menu_cont_left {
+    display: block !important;
+}
+/* Fallback close icon if FontAwesome fails */
+.icon-close:before {
+    content: "✕" !important;
+    font-size: 20px;
+}
+
+/* Cache bust: 1781375934 */

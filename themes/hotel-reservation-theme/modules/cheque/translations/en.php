@@ -15,3 +15,25 @@ $_MODULE['<{cheque}prestashop>payment_return_e1c54fdba2544646684f41ace03b5fda'] 
 $_MODULE['<{cheque}prestashop>payment_return_4761b03b53bc2b3bd948bb7443a26f31'] = 'Do not forget to include your order reference %s.';
 $_MODULE['<{cheque}prestashop>payment_return_0db71da7150c27142eef9d22b843b4a9'] = 'If you have questions, comments or concerns, please contact our';
 $_MODULE['<{cheque}prestashop>payment_841728ede901f5134574c4656aba5464'] = 'Pay by check (order processing will take more time)';
+
+$_MODULE['<{cheque}prestashop>payment_c646b0b7ce91ba80a5d770c789e50ee1'] = 'Pay on Arrival';
+$_MODULE['<{cheque}prestashop>payment_8e818a54b25ff572e078aeada33f1b1c'] = 'Pay on Arrival.';
+$_MODULE['<{cheque}prestashop>payment_e21c249a0117094ebb912c41f82302f7'] = '(Pay at the hotel upon check-in)';
+$_MODULE['<{cheque}prestashop>payment_execution_c646b0b7ce91ba80a5d770c789e50ee1'] = 'Pay on Arrival';
+$_MODULE['<{cheque}prestashop>payment_execution_a47a1953a1437467045f3d4aad0bca82'] = 'Booking summary';
+$_MODULE['<{cheque}prestashop>payment_execution_ed113c793b2eb57674bcf3a804be2f71'] = 'You have chosen Pay on Arrival.';
+$_MODULE['<{cheque}prestashop>payment_execution_3c654d9983c34b83d52534ff96c8a6d2'] = 'Here is a short summary of your booking:';
+$_MODULE['<{cheque}prestashop>payment_execution_1300d827aeb70a6fc1982aca5a425dae'] = 'The total amount of your booking comes to:';
+$_MODULE['<{cheque}prestashop>payment_execution_939c5325f49a60e6ae892391b054fc75'] = 'We accept several currencies for bookings.';
+$_MODULE['<{cheque}prestashop>payment_execution_ae7c72bb74a8954c7ec66a8a39ff6c09'] = 'We allow the following currencies for bookings:';
+$_MODULE['<{cheque}prestashop>payment_execution_3be29c95de0f9b22d02491aa9271d95a'] = 'Full payment will be collected at check-in at the hotel.';
+$_MODULE['<{cheque}prestashop>payment_execution_8030e4daa030ab603880f93bacaf5bcd'] = 'Please confirm your booking by clicking 'I confirm my booking'';
+$_MODULE['<{cheque}prestashop>payment_execution_f4e324e93b9d626fe24dffb94f353669'] = 'I confirm my booking';
+$_MODULE['<{cheque}prestashop>payment_return_e8dc98dac3d7bbcc569a81480a204919'] = 'Please note that full payment will be collected at the hotel upon check-in.';
+$_MODULE['<{cheque}prestashop>payment_return_c5ad5b31ad963254c0d83a4aa86a38f8'] = 'Payment amount:';
+$_MODULE['<{cheque}prestashop>payment_return_12196fc52282625a4cb05d94ec89e18c'] = 'Your order number is:';
+$_MODULE['<{cheque}prestashop>payment_return_d935731cd5d1f64771a516220bfbc9bc'] = 'Your order reference is:';
+$_MODULE['<{cheque}prestashop>payment_return_ef1a30e3646845c5a486b2a7b316e6f7'] = 'An email confirmation has been sent to you.';
+$_MODULE['<{cheque}prestashop>payment_return_f502ed378e4283988c60d29080d96032'] = 'Thank you for booking with Lavipark Hotel!';
+$_MODULE['<{cheque}prestashop>cheque_c646b0b7ce91ba80a5d770c789e50ee1'] = 'Pay on Arrival';
+$_MODULE['<{cheque}prestashop>cheque_975ea721ccbfd7bdf20c2ddeebc5b4c6'] = 'This module allows you to accept payments at the hotel upon check-in.';

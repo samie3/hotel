@@ -56,8 +56,8 @@ class Cheque extends PaymentModule
 		$this->bootstrap = true;
 		parent::__construct();
 
-		$this->displayName = $this->l('Payments by check');
-		$this->description = $this->l('This module allows you to accept payments for bookings by check.');
+		$this->displayName = $this->l('Pay on Arrival');
+		$this->description = $this->l('This module allows you to accept payments at the hotel upon check-in.');
 		$this->confirmUninstall = $this->l('Are you sure you want to delete these details?');
 
 		if ((!isset($this->chequeName) || !isset($this->address) || empty($this->chequeName) || empty($this->address)))

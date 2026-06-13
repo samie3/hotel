@@ -54,7 +54,8 @@
 {block name='global'}
 	{include file="$tpl_dir./global.tpl"}
 {/block}
-	</body>
+	<!-- LIVE_SINCE: 2026-06-13 18:56:49 UTC -->
+</body>
 </html>
 
 <script type="text/javascript">

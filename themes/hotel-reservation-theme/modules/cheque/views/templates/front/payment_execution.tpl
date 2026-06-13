@@ -23,9 +23,9 @@
 *  Lavipark Hotel
 *}
 
-{capture name=path}{l s='Check payment' mod='cheque'}{/capture}
+{capture name=path}{l s='Pay on Arrival' mod='cheque'}{/capture}
 
-<h1 class="page-heading">{l s='Order summary' mod='cheque'}</h1>
+<h1 class="page-heading">{l s='Booking summary' mod='cheque'}</h1>
 
 {assign var='current_step' value='payment'}
 {include file="$tpl_dir./errors.tpl"}
@@ -37,14 +37,14 @@
 
 	<form action="{$link->getModuleLink('cheque', 'validation', [], true)|escape:'html':'UTF-8'}" method="post">
 		<div class="box cheque-box">
-			<h3 class="page-subheading">{l s='Check payment' mod='cheque'}</h3>
+			<h3 class="page-subheading">{l s='Pay on Arrival' mod='cheque'}</h3>
 			<p class="cheque-indent">
 				<strong class="dark">
-					{l s='You have chosen to pay by check.' mod='cheque'} {l s='Here is a short summary of your order:' mod='cheque'}
+					{l s='You have chosen Pay on Arrival.' mod='cheque'} {l s='Here is a short summary of your booking:' mod='cheque'}
 				</strong>
 			</p>
 			<p>
-				- {l s='The total amount of your order comes to:' mod='cheque'}
+				- {l s='The total amount of your booking comes to:' mod='cheque'}
 				<span id="amount" class="price">{displayPrice price=$total}</span>
 				{if $use_taxes == 1 && $display_tax_label}
 					{l s='(tax incl.)' mod='cheque'}
@@ -53,7 +53,7 @@
 			<p>
 				-
 				{if isset($currencies) && $currencies|@count > 1}
-					{l s='We accept several currencies to receive payments by check.' mod='cheque'}
+					{l s='We accept several currencies for bookings.' mod='cheque'}
 					<br />
 					<div class="form-group row">
 						<label class="col-xs-12">{l s='Choose one of the following:' mod='cheque'}</label>
@@ -66,14 +66,14 @@
 						</div>
 					</div>
 				{else}
-					{l s='We allow the following currencies to be sent by check:' mod='cheque'}&nbsp;<b>{$currencies.0.name}</b>
+					{l s='We allow the following currencies for bookings:' mod='cheque'}&nbsp;<b>{$currencies.0.name}</b>
 					<input type="hidden" name="currency_payment" value="{$currencies.0.id_currency}" />
 				{/if}
 			</p>
 			<p>
-				- {l s='Check owner and address information will be displayed on the next page.' mod='cheque'}
+				- {l s='Full payment will be collected at check-in at the hotel.' mod='cheque'}
 				<br />
-				- {l s='Please confirm your order by clicking \'I confirm my order\'' mod='cheque'}.
+				- {l s='Please confirm your booking by clicking \'I confirm my booking\'' mod='cheque'}.
 			</p>
 		</div>
 		<p class="cart_navigation clearfix" id="cart_navigation">
@@ -83,7 +83,7 @@
 			{*By webkul To Check Order restrict condition before Payment by the customer*}
 			{if !$restrict_order}
                 <button class="btn pull-right button button-medium confirm_order" type="submit">
-                    <span>{l s='I confirm my order' mod='cheque'}&nbsp;<i class="icon-chevron-right right"></i></span>
+                    <span>{l s='I confirm my booking' mod='cheque'}&nbsp;<i class="icon-chevron-right right"></i></span>
                 </button>
             {/if}
 		</p>

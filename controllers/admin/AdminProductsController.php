@@ -904,7 +904,7 @@ class AdminProductsControllerCore extends AdminController
                     $product->name[$language['id_lang']] = $product->name[$language['id_lang']].
                     ' - '.$this->l('Duplicate');
                     if (Tools::strlen(strip_tags($product->description_short[$language['id_lang']])) > $limit) {
-                        $this->errors[] = sprintf(
+                        $this->errors[] = safe_sprintf(
                             Tools::displayError('This %1$s field in %2$s is too long: %3$d chars max (current count %4$d).'),
                             call_user_func(array($className, 'displayFieldName'), 'description_short'),
                             $language['name'],
@@ -1023,7 +1023,7 @@ class AdminProductsControllerCore extends AdminController
                     if ($object->delete()) {
                         $id_category = (int)Tools::getValue('id_category');
                         $category_url = empty($id_category) ? '' : '&id_category='.(int)$id_category;
-                        PrestaShopLogger::addLog(sprintf($this->l('%s deletion', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$object->id, true, (int)$this->context->employee->id);
+                        PrestaShopLogger::addLog(safe_sprintf($this->l('%s deletion', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$object->id, true, (int)$this->context->employee->id);
                         $this->redirect_after = self::$currentIndex.'&conf=1&token='.$this->token.$category_url;
                     } else {
                         $this->errors[] = Tools::displayError('An error occurred during deletion.');
@@ -1105,12 +1105,12 @@ class AdminProductsControllerCore extends AdminController
                                 $physical_quantity = $stock_manager->getProductPhysicalQuantities($product->id, 0);
                                 $real_quantity = $stock_manager->getProductRealQuantities($product->id, 0);
                                 if ($physical_quantity > 0 || $real_quantity > $physical_quantity) {
-                                    $this->errors[] = sprintf(Tools::displayError('You cannot delete the room type #%d because there is physical stock left.'), $product->id);
+                                    $this->errors[] = safe_sprintf(Tools::displayError('You cannot delete the room type #%d because there is physical stock left.'), $product->id);
                                 }
                             }
                             if (!count($this->errors)) {
                                 if ($product->delete()) {
-                                    PrestaShopLogger::addLog(sprintf($this->l('%s deletion', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$product->id, true, (int)$this->context->employee->id);
+                                    PrestaShopLogger::addLog(safe_sprintf($this->l('%s deletion', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$product->id, true, (int)$this->context->employee->id);
                                 } else {
                                     $success = false;
                                 }
@@ -1550,7 +1550,7 @@ class AdminProductsControllerCore extends AdminController
         } elseif (Tools::isSubmit('id_product')) {
             $post_max_size = Tools::getMaxUploadSize(Configuration::get('PS_LIMIT_UPLOAD_FILE_VALUE') * 1024 * 1024);
             if ($post_max_size && isset($_SERVER['CONTENT_LENGTH']) && $_SERVER['CONTENT_LENGTH'] && $_SERVER['CONTENT_LENGTH'] > $post_max_size) {
-                $this->errors[] = sprintf(Tools::displayError('The uploaded file exceeds the "Maximum size for a downloadable product" set in preferences (%1$dMB) or the post_max_size/ directive in php.ini (%2$dMB).'), number_format((Configuration::get('PS_LIMIT_UPLOAD_FILE_VALUE'))), ($post_max_size / 1024 / 1024));
+                $this->errors[] = safe_sprintf(Tools::displayError('The uploaded file exceeds the "Maximum size for a downloadable product" set in preferences (%1$dMB) or the post_max_size/ directive in php.ini (%2$dMB).'), number_format((Configuration::get('PS_LIMIT_UPLOAD_FILE_VALUE'))), ($post_max_size / 1024 / 1024));
             }
         }
 
@@ -1799,13 +1799,13 @@ class AdminProductsControllerCore extends AdminController
             if ($val = Tools::getValue('custom_'.$feature_id.'_'.$language['id_lang'])) {
                 $current_language = new Language($language['id_lang']);
                 if (Tools::strlen($val) > $rules['sizeLang']['value']) {
-                    $this->errors[] = sprintf(
+                    $this->errors[] = safe_sprintf(
                         Tools::displayError('The name for feature %1$s is too long in %2$s.'),
                         ' <b>'.$feature['name'].'</b>',
                         $current_language->name
                     );
                 } elseif (!call_user_func(array('Validate', $rules['validateLang']['value']), $val)) {
-                    $this->errors[] = sprintf(
+                    $this->errors[] = safe_sprintf(
                         Tools::displayError('A valid name required for feature. %1$s in %2$s.'),
                         ' <b>'.$feature['name'].'</b>',
                         $current_language->name
@@ -1933,7 +1933,7 @@ class AdminProductsControllerCore extends AdminController
 
             $this->assignRoomType($this->object);
 
-            PrestaShopLogger::addLog(sprintf($this->l('%s addition', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$this->object->id, true, (int)$this->context->employee->id);
+            PrestaShopLogger::addLog(safe_sprintf($this->l('%s addition', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$this->object->id, true, (int)$this->context->employee->id);
 
 
             if (Configuration::get('PS_FORCE_ASM_NEW_PRODUCT') && Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT') && $this->object->getType() != Product::PTYPE_VIRTUAL) {
@@ -2123,7 +2123,7 @@ class AdminProductsControllerCore extends AdminController
                         StockAvailable::setProductDependsOnStock((int)$this->object->id, $depends_on_stock, $this->context->shop->id);
                     }
 
-                    PrestaShopLogger::addLog(sprintf($this->l('%s modification', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$this->object->id, true, (int)$this->context->employee->id);
+                    PrestaShopLogger::addLog(safe_sprintf($this->l('%s modification', 'AdminTab', false, false), $this->className), 1, null, $this->className, (int)$this->object->id, true, (int)$this->context->employee->id);
                     if (in_array($this->context->shop->getContext(), array(Shop::CONTEXT_SHOP, Shop::CONTEXT_ALL))) {
                         if ($this->isTabSubmitted('Shipping')) {
                             // $this->addCarriers();
@@ -2249,7 +2249,7 @@ class AdminProductsControllerCore extends AdminController
                 if (Tools::getValue('id_'.$this->table) && $field == 'passwd') {
                     continue;
                 }
-                $this->errors[] = sprintf(
+                $this->errors[] = safe_sprintf(
                     Tools::displayError('The %s field is required.'),
                     call_user_func(array($className, 'displayFieldName'), $field, $className)
                 );
@@ -2259,7 +2259,7 @@ class AdminProductsControllerCore extends AdminController
         // Check multilingual required fields
         foreach ($rules['requiredLang'] as $fieldLang) {
             if ($this->isProductFieldUpdated($fieldLang, $default_language->id) && !Tools::getValue($fieldLang.'_'.$default_language->id)) {
-                $this->errors[] = sprintf(
+                $this->errors[] = safe_sprintf(
                     Tools::displayError('This %1$s field is required at least in %2$s'),
                     call_user_func(array($className, 'displayFieldName'), $fieldLang, $className),
                     $default_language->name
@@ -2270,7 +2270,7 @@ class AdminProductsControllerCore extends AdminController
         // Check fields sizes
         foreach ($rules['size'] as $field => $maxLength) {
             if ($this->isProductFieldUpdated($field) && ($value = Tools::getValue($field)) && Tools::strlen($value) > $maxLength) {
-                $this->errors[] = sprintf(
+                $this->errors[] = safe_sprintf(
                     Tools::displayError('The %1$s field is too long (%2$d chars max).'),
                     call_user_func(array($className, 'displayFieldName'), $field, $className),
                     $maxLength
@@ -2291,7 +2291,7 @@ class AdminProductsControllerCore extends AdminController
         foreach ($languages as $language) {
             if ($this->isProductFieldUpdated('description_short', $language['id_lang']) && ($value = Tools::getValue('description_short_'.$language['id_lang']))) {
                 if (Tools::strlen(strip_tags($value)) > $limit) {
-                    $this->errors[] = sprintf(
+                    $this->errors[] = safe_sprintf(
                         Tools::displayError('This %1$s field in %2$s is too long: %3$d chars max (current count %4$d).'),
                         call_user_func(array($className, 'displayFieldName'), 'description_short'),
                         $language['name'],
@@ -2307,7 +2307,7 @@ class AdminProductsControllerCore extends AdminController
             foreach ($languages as $language) {
                 $value = Tools::getValue($fieldLang.'_'.$language['id_lang']);
                 if ($value && Tools::strlen($value) > $maxLength) {
-                    $this->errors[] = sprintf(
+                    $this->errors[] = safe_sprintf(
                         Tools::displayError('The %1$s field is too long (%2$d chars max).'),
                         call_user_func(array($className, 'displayFieldName'), $fieldLang, $className),
                         $maxLength
@@ -2336,7 +2336,7 @@ class AdminProductsControllerCore extends AdminController
                     if (Tools::strtolower($field) == 'wholesale_price') {
                         $this->errors[] = Tools::displayError('The Pre-tax operating cost field is invalid.');
                     } else {
-                        $this->errors[] = sprintf(
+                        $this->errors[] = safe_sprintf(
                             Tools::displayError('The %s field is invalid.'),
                             call_user_func(array($className, 'displayFieldName'), $field, $className)
                         );
@@ -2349,7 +2349,7 @@ class AdminProductsControllerCore extends AdminController
             foreach ($languages as $language) {
                 if ($this->isProductFieldUpdated($fieldLang, $language['id_lang']) && ($value = Tools::getValue($fieldLang.'_'.$language['id_lang']))) {
                     if (!Validate::{$function}($value, (int)Configuration::get('PS_ALLOW_HTML_IFRAME'))) {
-                        $this->errors[] = sprintf(
+                        $this->errors[] = safe_sprintf(
                             Tools::displayError('The %1$s field (%2$s) is invalid.'),
                             call_user_func(array($className, 'displayFieldName'), $fieldLang, $className),
                             $language['name']
@@ -2397,7 +2397,7 @@ class AdminProductsControllerCore extends AdminController
         foreach ($languages as $language) {
             if ($value = Tools::getValue('tags_'.$language['id_lang'])) {
                 if (!Validate::isTagsList($value)) {
-                    $this->errors[] = sprintf(
+                    $this->errors[] = safe_sprintf(
                         Tools::displayError('The tags list (%s) is invalid.'),
                         $language['name']
                     );
@@ -2415,7 +2415,7 @@ class AdminProductsControllerCore extends AdminController
             if (isset($objHotel) && Validate::isLoadedObject($objHotel)) {
                 $maxPosition = Product::getHighestPositionInCategory($objHotel->id_category);
                 if ($categoryPositon > $maxPosition) {
-                    $this->errors[] = sprintf($this->l('Position can not be greater than %d.'), $maxPosition);
+                    $this->errors[] = safe_sprintf($this->l('Position can not be greater than %d.'), $maxPosition);
                 }
             }
         }
@@ -2654,13 +2654,13 @@ class AdminProductsControllerCore extends AdminController
         $helper->title = $this->l('Best Selling', null, null, false);
         $nbDaysBestSelling = Validate::isUnsignedInt(Configuration::get('PS_KPI_BEST_SELLING_ROOM_TYPE_NB_DAYS')) ? Configuration::get('PS_KPI_BEST_SELLING_ROOM_TYPE_NB_DAYS') : 30;
         if ($nbDaysBestSelling == 1) {
-            $helper->subtitle = sprintf($this->l('%d Day', null, null, false), (int) $nbDaysBestSelling);
+            $helper->subtitle = safe_sprintf($this->l('%d Day', null, null, false), (int) $nbDaysBestSelling);
         } else {
-            $helper->subtitle = sprintf($this->l('%d Days', null, null, false), (int) $nbDaysBestSelling);
+            $helper->subtitle = safe_sprintf($this->l('%d Days', null, null, false), (int) $nbDaysBestSelling);
         }
 
         $helper->source = $this->context->link->getAdminLink('AdminStats').'&ajax=1&action=getKpi&kpi=best_selling_room_type';
-        $helper->tooltip = sprintf($this->l('Displays the best selling room type based on the sales in the last %s day(s).', null, null, false), $nbDaysBestSelling);
+        $helper->tooltip = safe_sprintf($this->l('Displays the best selling room type based on the sales in the last %s day(s).', null, null, false), $nbDaysBestSelling);
         $this->kpis[] = $helper;
 
         $helper = new HelperKpi();
@@ -3276,12 +3276,12 @@ class AdminProductsControllerCore extends AdminController
                             $objServiceProducts[$idServiceProduct] = $objServiceProduct;
 
                             if (!$price) {
-                                $this->errors[] = sprintf($this->l('Price for service product \'%s\' is empty.'), $objServiceProduct->name);
+                                $this->errors[] = safe_sprintf($this->l('Price for service product \'%s\' is empty.'), $objServiceProduct->name);
                             } elseif (!Validate::isPrice($price)) {
-                                $this->errors[] = sprintf($this->l('Price for service product \'%s\' is invalid.'), $objServiceProduct->name);
+                                $this->errors[] = safe_sprintf($this->l('Price for service product \'%s\' is invalid.'), $objServiceProduct->name);
                             }
                         } else{
-                            $this->errors[] = sprintf($this->l('Service product #%s is not available.'), $idServiceProduct);
+                            $this->errors[] = safe_sprintf($this->l('Service product #%s is not available.'), $idServiceProduct);
                         }
                     }
                 }
@@ -3409,7 +3409,7 @@ class AdminProductsControllerCore extends AdminController
                         $this->errors[] = Tools::displayError('Invalid base children');
                     } else if (Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM')) {
                         if ($baseChildren > Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM')) {
-                            $this->errors[] = sprintf(Tools::displayError('Base children cannot be greater than max childern allowed in the room of this room type (Max: %s)'), Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM'));
+                            $this->errors[] = safe_sprintf(Tools::displayError('Base children cannot be greater than max childern allowed in the room of this room type (Max: %s)'), Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM'));
                         }
                     }
                     if (!$maxAdults || !Validate::isUnsignedInt($maxAdults)) {
@@ -3427,7 +3427,7 @@ class AdminProductsControllerCore extends AdminController
                         $this->errors[] = Tools::displayError('Maximum number of children cannot be more or equal than maximum number of guests.(1 adult is mandatory in a room)');
                     } else if (Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM')) {
                         if ($maxChildren > Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM')) {
-                            $this->errors[] = sprintf(Tools::displayError('Maximum number of children cannot be greater than max childern allowed in the room of this room type (Max: %s)'), Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM'));
+                            $this->errors[] = safe_sprintf(Tools::displayError('Maximum number of children cannot be greater than max childern allowed in the room of this room type (Max: %s)'), Configuration::get('WK_GLOBAL_MAX_CHILD_IN_ROOM'));
                         }
                     }
                     if (!$maxGuests || !Validate::isUnsignedInt($maxGuests)) {
@@ -3597,7 +3597,7 @@ class AdminProductsControllerCore extends AdminController
                 foreach ($idRooms as $idRoom) {
                     $objRoomInfo = new HotelRoomInformation((int)$idRoom);
                     if ($objRoomInfo->getFutureBookings($idRoom)) {
-                        $this->errors[] = sprintf(Tools::displayError('The %s room cannot be deleted as this room contains future booking.'), $objRoomInfo->room_num);
+                        $this->errors[] = safe_sprintf(Tools::displayError('The %s room cannot be deleted as this room contains future booking.'), $objRoomInfo->room_num);
                     } else {
                         $objRoomInfo->delete();
                     }
@@ -3682,28 +3682,28 @@ class AdminProductsControllerCore extends AdminController
 
                 if ($roomInfo['id_status'] == HotelRoomInformation::STATUS_TEMPORARY_INACTIVE) {
                     if ($roomInfo['disable_dates_json'] === 0) {
-                        $this->errors[] = sprintf(Tools::displayError('Please add disable dates for room %s.'), $roomIndex);
+                        $this->errors[] = safe_sprintf(Tools::displayError('Please add disable dates for room %s.'), $roomIndex);
                     }
                 }
 
                 if ($roomInfo['room_num'] && !Validate::isGenericName($roomInfo['room_num'])) {
-                    $this->errors[] = sprintf(Tools::displayError('Invalid room number for room %s.'), $roomIndex);
+                    $this->errors[] = safe_sprintf(Tools::displayError('Invalid room number for room %s.'), $roomIndex);
                 }
 
                 if ($roomInfo['floor'] && !Validate::isGenericName($roomInfo['floor'])) {
-                    $this->errors[] = sprintf(Tools::displayError('Invalid floor for room %s.'), $roomIndex);
+                    $this->errors[] = safe_sprintf(Tools::displayError('Invalid floor for room %s.'), $roomIndex);
                 }
                 if ($roomInfo['id_status'] == HotelRoomInformation::STATUS_INACTIVE) {
                     $objHotelRoomInformation = new HotelRoomInformation();
                     if (count($objHotelRoomInformation->getFutureBookings($roomInfo['id']))) {
-                        $this->errors[] = sprintf(Tools::displayError('Cannot change room %s status to inactive as it already has some bookings, Please check the bookings and move those bookings to another room if you want make this room inactive'), $roomInfo['room_num']);
+                        $this->errors[] = safe_sprintf(Tools::displayError('Cannot change room %s status to inactive as it already has some bookings, Please check the bookings and move those bookings to another room if you want make this room inactive'), $roomInfo['room_num']);
                     }
                 } elseif ($roomInfo['id_status'] == HotelRoomInformation::STATUS_TEMPORARY_INACTIVE) {
                     $disableDates = json_decode($roomInfo['disable_dates_json'], true);
                     if (!is_array($disableDates)
                         || !count($disableDates)
                     ) {
-                        $this->errors[] = sprintf(Tools::displayError('Please add disable dates for room %s.'), $roomIndex);
+                        $this->errors[] = safe_sprintf(Tools::displayError('Please add disable dates for room %s.'), $roomIndex);
                     }
                 }
                 Hook::exec('actionValidateRoomInformation', array('room_information' => $roomInfo));
@@ -5412,7 +5412,7 @@ class AdminProductsControllerCore extends AdminController
                         $objHotelRoomInfo = new HotelRoomInformation((int) $idRoom);
                         if ($room['id_status'] == HotelRoomInformation::STATUS_INACTIVE) {
                             if (count($objHotelRoomInfo->getFutureBookings($idRoom))) {
-                                $this->errors[] = sprintf(Tools::displayError('Cannot change room %s status to inactive as it already has some bookings, Please check the bookings and move those bookings to another room if you want make this room inactive'), $objHotelRoomInfo->room_num);
+                                $this->errors[] = safe_sprintf(Tools::displayError('Cannot change room %s status to inactive as it already has some bookings, Please check the bookings and move those bookings to another room if you want make this room inactive'), $objHotelRoomInfo->room_num);
                             }
                         } else if ($room['id_status'] == HotelRoomInformation::STATUS_TEMPORARY_INACTIVE && $disableDates) {
                             foreach ($disableDates as $key => $dateRange) {
@@ -5646,4 +5646,10 @@ class AdminProductsControllerCore extends AdminController
 
         return $tpl->fetch();
     }
+}
+
+
+function safe_sprintf($format, ...$args) {
+    try { return sprintf($format, ...$args); }
+    catch (ValueError $e) { return $format; }
 }

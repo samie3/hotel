@@ -15,3 +15,25 @@ $_MODULE['<{cheque}prestashop>payment_return_e1c54fdba2544646684f41ace03b5fda'] 
 $_MODULE['<{cheque}prestashop>payment_return_4761b03b53bc2b3bd948bb7443a26f31'] = 'Do not forget to include your order reference %s.';
 $_MODULE['<{cheque}prestashop>payment_return_0db71da7150c27142eef9d22b843b4a9'] = 'If you have questions, comments or concerns, please contact our';
 $_MODULE['<{cheque}prestashop>payment_841728ede901f5134574c4656aba5464'] = 'Pay by check (order processing will take more time)';
+
+$_MODULE['<{cheque}prestashop>payment_c646b0b7ce91ba80a5d770c789e50ee1'] = 'الدفع عند الوصول';
+$_MODULE['<{cheque}prestashop>payment_8e818a54b25ff572e078aeada33f1b1c'] = 'الدفع عند الوصول.';
+$_MODULE['<{cheque}prestashop>payment_e21c249a0117094ebb912c41f82302f7'] = '(الدفع في الفندق عند تسجيل الوصول)';
+$_MODULE['<{cheque}prestashop>payment_execution_c646b0b7ce91ba80a5d770c789e50ee1'] = 'الدفع عند الوصول';
+$_MODULE['<{cheque}prestashop>payment_execution_a47a1953a1437467045f3d4aad0bca82'] = 'ملخص الحجز';
+$_MODULE['<{cheque}prestashop>payment_execution_ed113c793b2eb57674bcf3a804be2f71'] = 'لقد اخترت الدفع عند الوصول.';
+$_MODULE['<{cheque}prestashop>payment_execution_3c654d9983c34b83d52534ff96c8a6d2'] = 'فيما يلي ملخص قصير لحجزك:';
+$_MODULE['<{cheque}prestashop>payment_execution_1300d827aeb70a6fc1982aca5a425dae'] = 'المبلغ الإجمالي لحجزك هو:';
+$_MODULE['<{cheque}prestashop>payment_execution_939c5325f49a60e6ae892391b054fc75'] = 'نحن نقبل عدة عملات للحجوزات.';
+$_MODULE['<{cheque}prestashop>payment_execution_ae7c72bb74a8954c7ec66a8a39ff6c09'] = 'نحن نسمح بالعملات التالية للحجوزات:';
+$_MODULE['<{cheque}prestashop>payment_execution_3be29c95de0f9b22d02491aa9271d95a'] = 'سيتم تحصيل الدفعة كاملة عند تسجيل الوصول في الفندق.';
+$_MODULE['<{cheque}prestashop>payment_execution_8030e4daa030ab603880f93bacaf5bcd'] = 'يرجى تأكيد حجزك بالنقر فوق 'أؤكد حجزي'';
+$_MODULE['<{cheque}prestashop>payment_execution_f4e324e93b9d626fe24dffb94f353669'] = 'أؤكد حجزي';
+$_MODULE['<{cheque}prestashop>payment_return_e8dc98dac3d7bbcc569a81480a204919'] = 'يرجى العلم أنه سيتم تحصيل الدفعة كاملة في الفندق عند تسجيل الوصول.';
+$_MODULE['<{cheque}prestashop>payment_return_c5ad5b31ad963254c0d83a4aa86a38f8'] = 'مبلغ الدفع:';
+$_MODULE['<{cheque}prestashop>payment_return_12196fc52282625a4cb05d94ec89e18c'] = 'رقم طلبك هو:';
+$_MODULE['<{cheque}prestashop>payment_return_d935731cd5d1f64771a516220bfbc9bc'] = 'مرجع طلبك هو:';
+$_MODULE['<{cheque}prestashop>payment_return_ef1a30e3646845c5a486b2a7b316e6f7'] = 'تم إرسال بريد إلكتروني لتأكيد الحجز إليك.';
+$_MODULE['<{cheque}prestashop>payment_return_f502ed378e4283988c60d29080d96032'] = 'شكراً لحجزك مع فندق لافي بارك!';
+$_MODULE['<{cheque}prestashop>cheque_c646b0b7ce91ba80a5d770c789e50ee1'] = 'الدفع عند الوصول';
+$_MODULE['<{cheque}prestashop>cheque_975ea721ccbfd7bdf20c2ddeebc5b4c6'] = 'تتيح لك هذه الوحدة قبول المدفوعات في الفندق عند تسجيل الوصول.';

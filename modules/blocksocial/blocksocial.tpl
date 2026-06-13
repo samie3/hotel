@@ -67,10 +67,10 @@
                         </a>
                     </li>
                 {/if}
-                {if isset($pinterest_url) && $pinterest_url != ''}
-                    <li class="pinterest">
-                        <a class="_blank" href="{$pinterest_url|escape:html:'UTF-8'}">
-                            <span>{l s='Pinterest' mod='blocksocial'}</span>
+                {if isset($tiktok_url) && $tiktok_url != ''}
+                    <li class="tiktok">
+                        <a class="_blank" href="{$tiktok_url|escape:html:'UTF-8'}">
+                            <span>{l s='TikTok' mod='blocksocial'}</span>
                         </a>
                     </li>
                 {/if}

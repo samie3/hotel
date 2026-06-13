@@ -66,3 +66,18 @@ $(document).ready(function()
 		}
 	});
 });
+
+// Enhanced close handler - direct hide
+$(document).on("click", ".close_navbar", function() {
+    $("#menu_cont").removeClass("menu_cont_left").addClass("menu_cont_right");
+    $("body").css("overflow", "auto");
+});
+
+// Click outside menu to close
+$(document).on("click", function(e) {
+    if (!$(e.target).closest("#menu_cont, .nav_toggle, .header-top-menu").length) {
+        if ($("#menu_cont").hasClass("menu_cont_left")) {
+            $("#menu_cont").removeClass("menu_cont_left").addClass("menu_cont_right");
+        }
+    }
+});

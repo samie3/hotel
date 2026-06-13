@@ -215,14 +215,14 @@
 									<li class="active"><a href="#product_info_tab" class="idTabHrefShort" data-toggle="tab">{if $product->booking_product}{if $lang_iso == 'ar'}معلومات الغرفة{else}{l s='Room Information'}{/if}{else}{l s='Product Information'}{/if}</a></li>
 										{* Block for booking products *}
 										{if isset($id_hotel) && $id_hotel}
+										{block name='displayProductTab'}
+											{$HOOK_PRODUCT_TAB}
+										{/block}
 											<li><a href="#refund_policies_tab" class="idTabHrefShort" data-toggle="tab">{if $lang_iso == 'ar'}سياسات الاسترداد{else}{l s='Refund Policies'}{/if}</a></li>
 										{/if}
 										{if $display_google_maps && !empty($hotel_latitude) && !empty($hotel_longitude) && ($hotel_latitude|floatval != 0 && $hotel_longitude|floatval != 0)}
 											<li><a href="#room_type_map_tab" class="idTabHrefShort" data-toggle="tab">{l s='View on Map'}</a></li>
 										{/if}
-										{block name='displayProductTab'}
-											{$HOOK_PRODUCT_TAB}
-										{/block}
 									</ul>
 								{/block}
 								{block name='product_tabs_content'}
@@ -521,33 +521,8 @@
 						</div>
 					</section>
 				{/if}
-				<!-- {if isset($features) && $features} -->
-					<section class="page-product-box">
-						<h3 class="page-product-heading">{l s='Data sheet'}</h3>
-						<table class="table-data-sheet">
-							{foreach from=$features item=feature}
-							<tr class="{cycle values="odd,even"}">
-								{if isset($feature.value)}
-								<td>{$feature.name|escape:'html':'UTF-8'}</td>
-								<td>{$feature.value|escape:'html':'UTF-8'}</td>
-								{/if}
-							</tr>
-							{/foreach}
-						</table>
-					</section>
-				{/if} 
 				<!-- {if isset($product) && $product->description} -->
 					<section class="page-product-box">
-						<h3 class="page-product-heading">{l s='More info'}</h3>
-						<div  class="rte">{$product->description}</div>
-					</section>
-				{/if} commented 
-				{if isset($packItems) && $packItems|@count > 0}
-				<section id="blockpack">
-					<h3 class="page-product-heading">{l s='Pack content'}</h3>
-					{block name='product_list'}
-						{include file="$tpl_dir./product-list.tpl" products=$packItems}
-					{/block}
 				</section>
 				{/if}
 				<!-- tab hook is shifted to left column -->

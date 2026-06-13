@@ -25,16 +25,17 @@
 
 {if $status == 'ok'}
         <p class="alert alert-success">{l s='Your' mod='cheque'} {if $cart_room_bookings|count > 1}{l s='bookings have' mod='cheque'}{else}{l s='booking has' mod='cheque'}{/if} {l s='been created successfully!' mod='cheque'}</p><br /><br />
-		{l s='Your check must include:' mod='cheque'}<br />
-		- {l s='Payment amount.' mod='cheque'} <span class="price"><strong>{$total_to_pay}</strong></span>
-		<br />- {l s='Payable to the order of' mod='cheque'} <strong>{if $chequeName}{$chequeName}{else}___________{/if}</strong>
-		<br />- {l s='Mail to' mod='cheque'} <strong>{if $chequeAddress}{$chequeAddress}{else}___________{/if}</strong>
-		{if !isset($reference) && isset($id_order) && $id_order}
-			<br /><br />- {l s='Do not forget to insert your order number #%d.' sprintf=$id_order mod='cheque'}
-		{else}
-			<br /><br />- {l s='Do not forget to insert your order reference %s.' sprintf=$reference mod='cheque'}
-		{/if}
-		<br />
+		<div class="box">
+			<p>{l s='Please note that full payment will be collected at the hotel upon check-in.' mod='cheque'}</p>
+			<p>- {l s='Payment amount:' mod='cheque'} <span class="price"><strong>{$total_to_pay}</strong></span></p>
+			{if !isset($reference) && isset($id_order) && $id_order}
+				<p>- {l s='Your order number is:' mod='cheque'} <strong>#{$id_order}</strong></p>
+			{else}
+				<p>- {l s='Your order reference is:' mod='cheque'} <strong>{$reference}</strong></p>
+			{/if}
+			<p>{l s='An email confirmation has been sent to you.' mod='cheque'}</p>
+			<p><strong>{l s='Thank you for booking with Lavipark Hotel!' mod='cheque'}</strong></p>
+		</div>
 		<br />
 {else}
 	<p class="alert alert-warning">

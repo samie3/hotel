@@ -9345,13 +9345,15 @@ a:hover {
 }
 /* Boss request: bigger bolder transparent logo */
 #header_logo img {
-    max-height: 70px !important;
+    max-height: 80px !important;
     width: auto;
     margin: 5px 0;
 }
 /* Boss: احجز الآن blue bold */
-.book_now_submit, .exclusive.book_now_submit {
+.book_now_submit, .exclusive.book_now_submit,
+.ajax_add_to_cart_button {
     background: #2563eb !important;
+    background-image: none !important;
     color: #fff !important;
     font-weight: 700 !important;
     font-size: 16px !important;
@@ -9359,8 +9361,13 @@ a:hover {
     border-radius: 8px !important;
     padding: 12px 24px !important;
 }
-.book_now_submit:hover {
+.book_now_submit:hover,
+.ajax_add_to_cart_button:hover {
     background: #1d4ed8 !important;
+}
+.book_now_submit span, .ajax_add_to_cart_button span {
+    color: #fff !important;
+    font-weight: 700 !important;
 }
 /* Footer link lighter color */
 .footer-container a, #footer a, .footer a {
@@ -9370,14 +9377,27 @@ a:hover {
 .footer-container a:hover {
     color: #c9a96e !important;
 }
-/* TikTok icon styling */
-.social .tiktok a, .social li.tiktok a {
-    background: #000;
-    color: #fff;
+/* Footer copyright line: smaller + lighter */
+.footer-container #footer .bottom-footer,
+.footer-container #footer .bottom-footer a,
+.footer-container #footer .bottom-footer div {
+    font-size: 12px !important;
+    color: #9a9a9a !important;
 }
-.social .tiktok a:hover {
-    background: #25F4EE;
-    color: #000;
+/* TikTok: real icon glyph (FontAwesome v4 has no tiktok glyph) */
+.footer-container #footer #social_block ul li.tiktok a span,
+.social li.tiktok a span { display: none; }
+.footer-container #footer #social_block ul li.tiktok a:before,
+.social li.tiktok a:before {
+    content: "" !important;
+    display: inline-block;
+    width: 41px;
+    height: 41px;
+    vertical-align: middle;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23868686' d='M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z'/%3E%3C/svg%3E") center/19px 19px no-repeat;
+}
+.footer-container #footer #social_block ul li.tiktok a:hover:before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z'/%3E%3C/svg%3E") center/19px 19px no-repeat;
 }
 /* Payment icons - unified size */
 .footer-payment-block img {
@@ -9386,9 +9406,6 @@ a:hover {
     margin: 5px 8px !important;
     border-radius: 4px;
     object-fit: contain;
-}
-/* Hide restaurant and transportation tabs for now */
-    display: none !important;
 }
 /* Hamburger menu close button - make visible and working */
 .close_navbar {
@@ -9409,10 +9426,13 @@ a:hover {
 #menu_cont.menu_cont_left {
     display: block !important;
 }
-/* Fallback close icon if FontAwesome fails */
-.icon-close:before {
-    content: "✕" !important;
-    font-size: 20px;
+/* Close (X) icon: glyph was empty in the icon font everywhere */
+.icon-close:before,
+.icon-remove:before,
+.icon-times:before {
+    content: "\00d7" !important;
+    font-family: Arial, "Helvetica Neue", sans-serif !important;
+    font-weight: 700;
+    font-size: 1.15em;
+    line-height: 1;
 }
-
-/* Cache bust: 1781375934 */

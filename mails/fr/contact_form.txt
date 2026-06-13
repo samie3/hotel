@@ -1,0 +1,2 @@
+[/{shop_url}] Votre message au service à la clientèle de {shop_name} Votre message a été envoyé avec succès. MESSAGE : {message} ID DE COMMANDE : {order_name} PRODUIT : {product_name} FICHIER JOINT : {attached_file} Nous vous répondrons dans les plus brefs délais. {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

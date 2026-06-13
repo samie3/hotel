@@ -1,0 +1,2 @@
+[/{shop_url}] {en-tête}, Titre : {sujet} Message : {reply} Veuillez ne pas répondre directement à cet courriel ; on ne le recevra pas. Pour nous répondre, cliquez ici [/{lien}]. {shop_name} [/{shop_url}] Propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com]
+

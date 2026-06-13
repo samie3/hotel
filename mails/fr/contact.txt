@@ -1,0 +1,2 @@
+[/{shop_url}] Message d'un client de {shop_name} {contact_content_txt} {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com]
+

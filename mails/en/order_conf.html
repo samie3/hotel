@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Booking Confirmation - {shop_name}</title>
+    <style>
+        @media only screen and (max-width: 300px) {
+            body { width: 218px !important; margin: auto !important; }
+            thead, tbody { width: 100%; }
+            .table { width: 195px !important; margin: auto !important; }
+            .logo, .titleblock, .linkbelow, .box, .footer, .space_footer { width: auto !important; display: block !important; }
+            span.title { font-size: 20px !important; line-height: 23px !important; }
+            span.subtitle { font-size: 14px !important; line-height: 18px !important; padding-top: 10px !important; display: block !important; }
+            td.box p { font-size: 12px !important; font-weight: bold !important; }
+            .table-recap table, .table-recap thead, .table-recap tbody, .table-recap th, .table-recap td, .table-recap tr { display: block !important; }
+            .table-recap { width: 200px !important; }
+            .table-recap tr td, .conf_body td { text-align: center !important; }
+            .address { display: block !important; margin-bottom: 10px !important; }
+            .space_address { display: none !important; }
+        }
+        @media only screen and (min-width: 301px) and (max-width: 500px) {
+            body { width: 425px !important; margin: auto !important; }
+            thead, tbody { width: 100%; }
+            .table { margin: auto !important; }
+            .logo, .titleblock, .linkbelow, .box, .footer, .space_footer { width: auto !important; display: block !important; }
+            .table-recap { width: 295px !important; }
+            .table-recap tr td, .conf_body td { text-align: center !important; }
+            .table-recap tr th { font-size: 10px !important; }
+        }
+        @media only screen and (min-width: 501px) and (max-width: 768px) {
+            body { width: 478px !important; margin: auto !important; }
+            thead, tbody { width: 100%; }
+            .table { margin: auto !important; }
+            .logo, .titleblock, .linkbelow, .box, .footer, .space_footer { width: auto !important; display: block !important; }
+        }
+        @media only screen and (max-device-width: 480px) {
+            body { width: 340px !important; margin: auto !important; }
+            thead, tbody { width: 100%; }
+            .table { margin: auto !important; }
+            .logo, .titleblock, .linkbelow, .box, .footer, .space_footer { width: auto !important; display: block !important; }
+            .table-recap { width: 295px !important; }
+            .table-recap tr td, .conf_body td { text-align: center !important; }
+            .address { display: block !important; margin-bottom: 10px !important; }
+            .space_address { display: none !important; }
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #d4a843;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .btn-primary:hover { background-color: #b8922e; }
+        .hotel-info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #d4a843;
+            padding: 12px 16px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .highlight-box {
+            background-color: #fff8e6;
+            border: 2px solid #d4a843;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .highlight-box .booking-ref {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body style="-webkit-text-size-adjust:none;background-color:#fff;width:800px;font-family:Open-sans, sans-serif;color:#555454;font-size:13px;line-height:18px;margin:auto">
+    <table class="table table-mail" style="width:100%;margin-top:10px;-moz-box-shadow:0 0 5px #afafaf;-webkit-box-shadow:0 0 5px #afafaf;-o-box-shadow:0 0 5px #afafaf;box-shadow:0 0 5px #afafaf;filter:progid:DXImageTransform.Microsoft.Shadow(color=#afafaf,Direction=134,Strength=5)">
+        <tr>
+            <td class="space" style="width:20px;padding:7px 0">&nbsp;</td>
+            <td align="center" style="padding:7px 0">
+                <table class="table" bgcolor="#ffffff" style="width:100%">
+                    <tr>
+                        <td align="center" class="logo" style="border-bottom:4px solid #d4a843;padding:15px 0">
+                            <a title="{shop_name}" href="{shop_url}" target="_blank" style="color:#337ff1">
+                                <img src="{shop_logo}" alt="{shop_name}" style="max-height:80px;" />
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Greeting -->
+                    <tr>
+                        <td align="center" class="titleblock" style="padding:20px 0 10px 0">
+                            <font size="2" face="Open-sans, sans-serif" color="#555454">
+                                <span class="title" style="font-weight:600;font-size:26px;line-height:32px">Thank You for Your Booking, {firstname} {lastname}!</span><br/>
+                                <span class="subtitle" style="font-weight:400;font-size:15px;line-height:22px;color:#777">{order_header_line_html}</span>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr><td class="space_footer" style="padding:0!important">&nbsp;</td></tr>
+
+                    <!-- Booking Reference Highlight -->
+                    <tr>
+                        <td style="padding:5px 0">
+                            <div class="highlight-box">
+                                <span style="font-size:14px;color:#666;">Booking Reference</span><br/>
+                                <span class="booking-ref">{order_name}</span><br/>
+                                <span style="font-size:12px;color:#999;">Placed on {date}</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Order Details -->
+                    <tr>
+                        <td class="box" style="border:1px solid #D6D4D4;background-color:#f8f8f8;padding:7px 0">
+                            <table class="table" style="width:100%">
+                                <tr>
+                                    <td width="10" style="padding:7px 0">&nbsp;</td>
+                                    <td style="padding:7px 0">
+                                        <font size="2" face="Open-sans, sans-serif" color="#555454">
+                                            <p data-html-only="1" style="border-bottom:1px solid #D6D4D4;margin:3px 0 7px;text-transform:uppercase;font-weight:500;font-size:18px;padding-bottom:10px">
+                                                Booking Summary
+                                            </p>
+                                            <span style="color:#777">
+                                                <span style="color:#333"><strong>Booking #:</strong></span> {order_name}<br/><br/>
+                                                <span style="color:#333"><strong>Payment Method:</strong></span> {payment}<br/><br/>
+                                                <span style="color:#333"><strong>Status:</strong></span> {order_state}
+                                            </span>
+                                        </font>
+                                    </td>
+                                    <td width="10" style="padding:7px 0">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Room Booking Details -->
+                    <tr><td style="padding:5px 0">{cart_booking_data_html}</td></tr>
+
+                    <!-- Extra Demands -->
+                    <tr><td style="padding:5px 0">{extra_demands_details_html}</td></tr>
+
+                    <!-- Other Products -->
+                    <tr><td style="padding:5px 0">{normal_products_data_html}</td></tr>
+
+                    <!-- Total -->
+                    <tr><td style="padding:5px 0">{order_total_info_html}</td></tr>
+
+                    <!-- Check-in Info -->
+                    <tr>
+                        <td style="padding:10px 0">
+                            <div class="hotel-info-box">
+                                <strong style="color:#333;font-size:15px;">Check-in Information</strong><br/><br/>
+                                <span style="color:#555;">
+                                    Please present your booking confirmation (Reference: {order_name}) at the hotel reception upon arrival.<br/><br/>
+                                    <strong>Check-in:</strong> From 2:00 PM (14:00)<br/>
+                                    <strong>Check-out:</strong> Until 12:00 PM (Noon)<br/><br/>
+                                    If you have any questions or need to make changes, please contact the hotel directly.
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Payment Alert for Pay on Arrival -->
+                    <tr>
+                        <td style="padding:5px 0">
+                            <div style="background-color:#fff3cd;border:1px solid #ffc107;padding:12px 16px;border-radius:4px;">
+                                <strong style="color:#856404;">Important Payment Notice:</strong><br/>
+                                <span style="color:#856404;font-size:12px;">
+                                    If your payment method is <strong>"Pay on Arrival"</strong>, please note that full payment will be collected at the hotel upon check-in. You do not need to make any payment online.
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr><td class="space_footer" style="padding:0!important">&nbsp;</td></tr>
+
+                    <!-- Links -->
+                    <tr>
+                        <td class="linkbelow" style="padding:7px 0" align="center">
+                            <font size="2" face="Open-sans, sans-serif" color="#555454">
+                                <a href="{history_url}" target="_blank" class="btn-primary">View My Booking</a>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="linkbelow" style="padding:7px 0" align="center">
+                            <font size="2" face="Open-sans, sans-serif" color="#555454">
+                                <span style="font-size:12px;color:#999;">
+                                    You can review your order and download your invoice from the 
+                                    <a href="{history_url}" target="_blank" style="color:#337ff1">"Order history"</a> section of your customer account by clicking 
+                                    <a href="{my_account_url}" target="_blank" style="color:#337ff1">"My account"</a> on our website.
+                                </span>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="linkbelow" style="padding:5px 0" align="center">
+                            <font size="2" face="Open-sans, sans-serif" color="#555454">
+                                <span style="font-size:12px;color:#999;">
+                                    Guest? Track your booking via the 
+                                    <a href="{guest_tracking_url}?id_order={order_name}" target="_blank" style="color:#337ff1">"Guest Tracking"</a> section.
+                                </span>
+                            </font>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr><td class="space_footer" style="padding:0!important">&nbsp;</td></tr>
+                    <tr>
+                        <td class="footer" style="border-top:4px solid #d4a843;padding:15px 0;text-align:center">
+                            <span style="font-size:12px;color:#999;">
+                                <a href="{shop_url}" target="_blank" style="color:#d4a843;text-decoration:none;font-weight:bold;">{shop_name}</a><br/>
+                                <span style="font-size:11px;">This email was sent to you as a confirmation of your booking. If you have any questions, please contact us.</span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="space" style="width:20px;padding:7px 0">&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>

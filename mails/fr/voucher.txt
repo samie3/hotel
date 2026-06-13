@@ -1,0 +1,2 @@
+Bonjour {premier nom} {lastname}, Un bon de réduction a été créé à votre nom suite à votre commande portant la référence {order_name}. CODE : {voucher_num} d'un montant de {voucher_amount}. Copiez-collez simplement ce code lors du paiement de votre prochaine commande. {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

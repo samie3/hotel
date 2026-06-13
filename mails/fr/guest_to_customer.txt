@@ -1,0 +1,2 @@
+Bonjour {premier nom} {lastname}, Votre compte invité {shop_name} a été converti en compte client. Adresse courriel : {courriel} Mot de passe : {passwd} Soyez prudent lorsque vous partagez ces identifiants. Vous pouvez accéder à votre compte client sur notre site Web : {shop_url} {shop_name} [/{shop_url}], propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

@@ -1,0 +1,2 @@
+Bonjour {premier nom} {lastname}, Votre commande a été expédiée. Votre commande portant la référence {order_name} a été expédiée. Merci d'avoir réservé chez {shop_name} ! Vous pouvez consulter votre commande et télécharger votre facture à partir de la section « Historique des commandes » [/{history_url}] de votre compte client en cliquant sur « Mon compte » [/{my_account_url}] sur notre site web. {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

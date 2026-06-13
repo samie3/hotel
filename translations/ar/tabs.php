@@ -1,0 +1,52 @@
+<?php
+
+$_TABS = array();
+
+$_TABS['AdminAccess'] = 'الصلاحيات';
+$_TABS['AdminAdmin'] = 'الإدارة';
+$_TABS['AdminAdminPreferences'] = 'تفضيلات الإدارة';
+$_TABS['AdminAttachments'] = 'المرفقات';
+$_TABS['AdminCarriers'] = 'شركات الشحن';
+$_TABS['AdminCatalog'] = 'الكتالوج';
+$_TABS['AdminCms'] = 'صفحات المحتوى';
+$_TABS['AdminCmsCategories'] = 'أقسام المحتوى';
+$_TABS['AdminContacts'] = 'جهات الاتصال';
+$_TABS['AdminCountries'] = 'الدول';
+$_TABS['AdminCurrencies'] = 'العملات';
+$_TABS['AdminDashboard'] = 'لوحة التحكم';
+$_TABS['AdminEmails'] = 'البريد الإلكتروني';
+$_TABS['AdminEmployees'] = 'الموظفين';
+$_TABS['AdminHotelReservationSystemManagement'] = 'إدارة حجوزات الفندق';
+$_TABS['AdminImages'] = 'الصور';
+$_TABS['AdminLanguages'] = 'اللغات';
+$_TABS['AdminLocalization'] = 'التوطين';
+$_TABS['AdminLogin'] = 'تسجيل الدخول';
+$_TABS['AdminMaintenance'] = 'الصيانة';
+$_TABS['AdminMeta'] = 'العلامات الوصفية';
+$_TABS['AdminModules'] = 'الوحدات';
+$_TABS['AdminParentCustomer'] = 'العملاء';
+$_TABS['AdminParentLocalization'] = 'التوطين';
+$_TABS['AdminParentModules'] = 'الوحدات';
+$_TABS['AdminParentOrders'] = 'الطلبات';
+$_TABS['AdminParentPreferences'] = 'التفضيلات';
+$_TABS['AdminPayment'] = 'الدفع';
+$_TABS['AdminPerformance'] = 'الأداء';
+$_TABS['AdminPriceRule'] = 'قواعد الأسعار';
+$_TABS['AdminProfiles'] = 'الملفات الشخصية';
+$_TABS['AdminSearch'] = 'بحث';
+$_TABS['AdminShipping'] = 'الشحن';
+$_TABS['AdminShop'] = 'المتجر';
+$_TABS['AdminShopUrl'] = 'روابط المتجر';
+$_TABS['AdminStates'] = 'المناطق الإدارية';
+$_TABS['AdminStats'] = 'الإحصائيات';
+$_TABS['AdminStatuses'] = 'حالات الطلب';
+$_TABS['AdminStock'] = 'المخزون';
+$_TABS['AdminStores'] = 'المتاجر';
+$_TABS['AdminTaxRulesGroup'] = 'قواعد الضرائب';
+$_TABS['AdminTaxes'] = 'الضرائب';
+$_TABS['AdminThemes'] = 'القوالب';
+$_TABS['AdminTools'] = 'الأدوات';
+$_TABS['AdminTranslations'] = 'الترجمات';
+$_TABS['AdminWebservice'] = 'خدمة الويب';
+$_TABS['AdminZones'] = 'المناطق';
+

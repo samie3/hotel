@@ -1,0 +1,127 @@
+/* Font override for Arabic mobile */
+html[lang="ar"] body {
+    font-family: "Cairo", "Almarai", sans-serif !important;
+}
+
+/* ================================================
+   masathotel.com - RTL & Mobile-First CSS Override
+   ================================================ */
+
+/* Force RTL on Arabic */
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Reset box sizing */
+* { box-sizing: border-box; }
+
+/* RTL float overrides */
+html[dir="rtl"] .pull-left { float: right !important; }
+html[dir="rtl"] .pull-right { float: left !important; }
+
+/* RTL text alignment */
+html[dir="rtl"] .text-left { text-align: right; }
+html[dir="rtl"] .text-right { text-align: left; }
+
+/* Container - mobile first */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Grid system - mobile defaults */
+.row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+[class*="col-"] { padding: 0 15px; flex: 0 0 100%; max-width: 100%; }
+
+/* Breakpoints */
+@media (min-width: 576px) {
+    .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+}
+@media (min-width: 768px) {
+    .col-md-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+    .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+}
+@media (min-width: 992px) {
+    .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+}
+
+/* Header / Navigation */
+html[dir="rtl"] .header-top .row { flex-direction: row-reverse; }
+html[dir="rtl"] #header nav { direction: rtl; }
+html[dir="rtl"] .header-top-menu { direction: rtl; }
+
+/* Search form - RTL flow */
+html[dir="rtl"] .searchbox-form { direction: rtl; }
+html[dir="rtl"] .searchbox-form .form-group { direction: rtl; }
+html[dir="rtl"] .searchbox-form label { text-align: right; }
+
+/* Room cards - RTL text */
+html[dir="rtl"] .hotelRoomDescContainer { text-align: right; }
+html[dir="rtl"] .htlRoomTypeNameText { float: right !important; }
+html[dir="rtl"] .htlRoomTypePriceText { float: left !important; }
+
+/* Price - always LTR for numbers */
+html[dir="rtl"] .wk_roomType_price,
+html[dir="rtl"] .price-wrapper { direction: ltr; unicode-bidi: isolate; }
+
+/* Book now button */
+html[dir="rtl"] .book-now-btn { direction: ltr; }
+
+/* Amenities block */
+html[dir="rtl"] .htl-features-container { direction: rtl; }
+
+/* Footer - RTL */
+html[dir="rtl"] footer { direction: rtl; }
+html[dir="rtl"] .footer-column { text-align: right; }
+
+/* Hero section - full height, centered */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+/* Hero text */
+.hero-section h1 { font-size: 2rem; margin-bottom: 15px; }
+.hero-section p { font-size: 1rem; }
+
+/* Mobile: stack everything */
+@media (max-width: 767px) {
+    .header-top .row > div { margin-bottom: 10px; }
+    .search-panel { flex-direction: column; }
+    .room-card { margin-bottom: 20px; }
+    .home_block_content .col-md-6 { margin-bottom: 30px; }
+    .htl-features-container .feature-item { margin-bottom: 20px; }
+    .footer-links { flex-direction: column; }
+}
+
+/* Testimonials - mobile first */
+.testimonial-section { padding: 40px 15px; }
+.testimonial-card { padding: 20px; margin-bottom: 20px; }
+
+/* Read More button */
+html[dir="rtl"] .read-more-btn { direction: ltr; }
+
+/* Hero button - mobile full width */
+.hero-cta-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #c8a45e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+@media (min-width: 768px) {
+    .hero-cta-btn { width: auto; }
+}

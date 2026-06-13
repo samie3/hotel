@@ -1,0 +1,44 @@
+<?php
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_63a6a88c066880c5ac42394a22803ca6'] = 'تحديث';
+
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_90d11386ef0c90f27fb7ff65f1fcff83"] = "الواصلون";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_d4e6d41c0b3821c0c8f0c4e56d947ee9"] = "عدد الواصلين المقررين اليوم.";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_5201bc1c95fed6725def30cb27c01b1a"] = "المغادرون";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_25c21039a965b21f94639ec7cec7e040"] = "عدد المغادرين المقررين اليوم.";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_15068fa48d844fd3a21a460650f81145"] = "الضيوف (بالغين/أطفال)";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_36c162d08af759b84421db4bcb76bde5"] = "الحجوزات الملغاة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_707e4ef7452b8f415c36af6996052f0e"] = "رسائل الضيوف";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_9cae1e7c9d2a17658de4e1f00dd07981"] = "الغرف المشغولة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-top_1998e47006c71d5217e8fb534b0d6cf6"] = "حجوزات جديدة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_d4e6d41c0b3821c0c8f0c4e56d947ee9"] = "عدد الواصلين المقررين اليوم.";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_25c21039a965b21f94639ec7cec7e040"] = "عدد المغادرين المقررين اليوم.";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_f643b77a2d2c723c894b6a7b413b8c0c"] = "عمليات اليوم";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_90d11386ef0c90f27fb7ff65f1fcff83"] = "الواصلون";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_5201bc1c95fed6725def30cb27c01b1a"] = "المغادرون";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_7fa2b9ed3003fb18cf72f326c1f0d6f0"] = "داخل الفندق";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_1998e47006c71d5217e8fb534b0d6cf6"] = "حجوزات جديدة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_36a0e5b4634e32a4283f5b0c124fd8e2"] = "الإلغاءات";
+
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_b898f0a62dcfd02184ed0570136bb61f"] = "عمليات اليوم";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_c14ecb2ba5611ae4eb424bfb96676c7f"] = "داخل الفندق";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_views_templates_hook_dashboard-zone-two_1b08b875cf875b1aeaed558ce21fe4e6"] = "الإلغاءات";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_15068fa48d844fd3a21a460650f81145"] = "الضيوف (بالغين/أطفال)";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_36c162d08af759b84421db4bcb76bde5"] = "الحجوزات الملغاة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_707e4ef7452b8f415c36af6996052f0e"] = "رسائل الضيوف";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_9cae1e7c9d2a17658de4e1f00dd07981"] = "الغرف المشغولة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_1998e47006c71d5217e8fb534b0d6cf6"] = "حجوزات جديدة";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_5201bc1c95fed6725def30cb27c01b1a"] = "المغادرون";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_90d11386ef0c90f27fb7ff65f1fcff83"] = "الواصلون";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_b898f0a62dcfd02184ed0570136bb61f"] = "عمليات اليوم";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_c14ecb2ba5611ae4eb424bfb96676c7f"] = "داخل الفندق";
+$_MODULE["<{dashguestcycle}prestashop>dashguestcycle_1b08b875cf875b1aeaed558ce21fe4e6"] = "الإلغاءات";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_15068fa48d844fd3a21a460650f81145"] = "الضيوف (بالغين/أطفال)";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_36c162d08af759b84421db4bcb76bde5"] = "الحجوزات الملغاة";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_707e4ef7452b8f415c36af6996052f0e"] = "رسائل الضيوف";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_9cae1e7c9d2a17658de4e1f00dd07981"] = "الغرف المشغولة";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_1998e47006c71d5217e8fb534b0d6cf6"] = "حجوزات جديدة";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_5201bc1c95fed6725def30cb27c01b1a"] = "المغادرون";
+$_MODULE["<{dashguestcycle}hotel-reservation-theme>dashguestcycle_90d11386ef0c90f27fb7ff65f1fcff83"] = "الواصلون";
+return $_MODULE;

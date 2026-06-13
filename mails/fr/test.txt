@@ -1,0 +1,2 @@
+Bonjour, ceci est un courriel de test de votre site web. Si vous pouvez le lire, le test a réussi ! {shop_name} [/{shop_url}] Propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

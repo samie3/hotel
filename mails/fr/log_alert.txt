@@ -1,0 +1,2 @@
+[/{shop_url}] Bonjour {premier nom} {lastname}, ATTENTION : vous avez reçu une nouvelle alerte de journal dans votre Back Office. Vous pouvez la consulter dans la section « OUTILS » > « LOGS ». {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

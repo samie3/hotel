@@ -1,0 +1,2 @@
+[/{shop_url}] Bonjour {premier nom} {lastname}, {employé} souhaite vous transmettre cette discussion. DISCUSSIONS HISTORIQUE : {messages} {employé} a ajouté « {comment} » {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

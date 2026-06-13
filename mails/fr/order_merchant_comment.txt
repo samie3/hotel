@@ -1,0 +1,2 @@
+Bonjour {premier nom} {lastname}, vous avez reçu un nouveau message de {shop_name} concernant une réservation portant la référence {order_name}. Message : {message} {shop_name} [/{shop_url}] Propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com]
+

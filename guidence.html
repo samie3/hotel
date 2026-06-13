@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavipark Hotel — User Guide & Documentation</title>
+<style>
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d5a3;
+  --gold-dark: #a8873f;
+  --dark: #1a1a2e;
+  --darker: #0f0f1a;
+  --card: #1e1e3a;
+  --card-hover: #2a2a4a;
+  --text: #e0e0e0;
+  --text-dim: #999;
+  --accent: #4fc3f7;
+  --success: #66bb6a;
+  --warn: #ffa726;
+  --danger: #ef5350;
+  --border: #333366;
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+  --radius: 12px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+body.rtl { direction:rtl; font-family:'Segoe UI','Noto Sans Arabic','Helvetica Neue',Arial,sans-serif; }
+
+/* ===== STICKY HEADER ===== */
+header {
+  position:sticky; top:0; z-index:1000;
+  background:linear-gradient(135deg,var(--darker) 0%,var(--dark) 100%);
+  border-bottom:2px solid var(--gold);
+  padding:12px 20px;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+header .logo { display:flex; align-items:center; gap:12px; }
+header .logo img { height:40px; border-radius:4px; }
+header .logo h1 { font-size:1.2rem; color:var(--gold); font-weight:700; }
+header .logo span { font-size:0.75rem; color:var(--text-dim); display:block; }
+
+.lang-switch { display:flex; gap:4px; background:rgba(255,255,255,0.05); border-radius:8px; padding:3px; }
+.lang-btn {
+  padding:8px 18px; border:none; border-radius:6px; cursor:pointer;
+  font-size:0.85rem; font-weight:600;
+  background:transparent; color:var(--text-dim); transition:all .3s;
+}
+.lang-btn.active { background:var(--gold); color:var(--darker); }
+.lang-btn:hover:not(.active) { color:var(--gold); }
+
+/* ===== HERO ===== */
+.hero {
+  background:linear-gradient(135deg,var(--darker) 0%,#1a1a3e 50%,var(--darker) 100%);
+  text-align:center; padding:60px 20px 40px;
+  border-bottom:1px solid var(--border);
+}
+.hero h2 { font-size:2rem; color:var(--gold); margin-bottom:8px; }
+.hero p { color:var(--text-dim); max-width:700px; margin:0 auto; font-size:1rem; }
+.hero .badge {
+  display:inline-block; margin-top:12px;
+  background:rgba(201,169,110,0.15); color:var(--gold);
+  padding:6px 18px; border-radius:20px; font-size:0.85rem; border:1px solid var(--gold-dark);
+}
+.lang-hide { display:none; }
+
+/* ===== MAIN LAYOUT ===== */
+.layout { display:flex; min-height:100vh; }
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width:280px; flex-shrink:0;
+  background:var(--darker);
+  border-right:1px solid var(--border);
+  padding:20px 0;
+  position:sticky; top:68px; height:calc(100vh - 68px);
+  overflow-y:auto; overflow-x:hidden;
+}
+.sidebar::-webkit-scrollbar { width:4px; }
+.sidebar::-webkit-scrollbar-thumb { background:var(--gold-dark); border-radius:4px; }
+.sidebar .toc-title {
+  padding:8px 20px 16px;
+  font-size:0.85rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:1px;
+  border-bottom:1px solid var(--border); margin-bottom:8px;
+}
+
+.sidebar a {
+  display:block; padding:10px 20px;
+  color:var(--text-dim); text-decoration:none;
+  font-size:0.85rem; border-left:3px solid transparent;
+  transition:all .3s; position:relative;
+}
+.sidebar a:hover, .sidebar a.active {
+  color:var(--gold); background:rgba(201,169,110,0.06);
+  border-left-color:var(--gold);
+}
+.sidebar a.section-head {
+  color:var(--text); font-weight:700; font-size:0.9rem;
+  padding-top:16px; padding-bottom:8px;
+  border-left-color:transparent;
+}
+.sidebar a.section-head:hover { background:transparent; color:var(--gold); }
+.sidebar a.sub { padding-left:36px; font-size:0.8rem; }
+
+/* ===== CONTENT ===== */
+.content {
+  flex:1; min-width:0;
+  padding:30px 40px 80px;
+  max-width:1000px;
+}
+
+.section {
+  margin-bottom:40px;
+  background:var(--card);
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  overflow:hidden;
+  transition:box-shadow .3s;
+}
+.section:hover { box-shadow:var(--shadow); }
+
+.section-header {
+  padding:18px 24px;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:space-between;
+  background:linear-gradient(90deg,rgba(201,169,110,0.08),transparent);
+  user-select:none;
+  gap:12px;
+}
+.section-header:hover { background:rgba(201,169,110,0.12); }
+.section-header h3 {
+  font-size:1.1rem; color:var(--gold);
+  display:flex; align-items:center; gap:10px;
+}
+.section-header h3 .num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:50%;
+  background:var(--gold); color:var(--darker);
+  font-size:0.75rem; font-weight:800; flex-shrink:0;
+}
+.section-header .toggle-icon {
+  width:24px; height:24px; flex-shrink:0;
+  transition:transform .3s;
+  color:var(--gold);
+}
+.section-header .toggle-icon.open { transform:rotate(180deg); }
+
+.section-body {
+  padding:0 24px;
+  max-height:0; overflow:hidden;
+  transition:max-height .5s ease, padding .4s ease;
+}
+.section-body.open {
+  max-height:6000px;
+  padding:24px;
+}
+
+/* ===== CONTENT STYLES ===== */
+.section-body p { margin-bottom:1rem; }
+.section-body ul, .section-body ol { margin-bottom:1rem; padding-left:24px; }
+body.rtl .section-body ul, body.rtl .section-body ol { padding-left:0; padding-right:24px; }
+.section-body li { margin-bottom:6px; }
+.section-body strong { color:var(--gold); }
+.section-body code {
+  background:rgba(255,255,255,0.06);
+  padding:2px 8px; border-radius:4px;
+  font-size:0.85rem; color:var(--accent);
+  word-break:break-all;
+}
+.section-body .tip {
+  background:rgba(79,195,247,0.08); border-left:3px solid var(--accent);
+  padding:12px 16px; border-radius:6px; margin:12px 0;
+  font-size:0.9rem;
+}
+body.rtl .section-body .tip { border-left:none; border-right:3px solid var(--accent); }
+.section-body .warn-box {
+  background:rgba(255,167,38,0.08); border-left:3px solid var(--warn);
+  padding:12px 16px; border-radius:6px; margin:12px 0;
+  font-size:0.9rem;
+}
+.section-body table {
+  width:100%; border-collapse:collapse; margin:12px 0;
+  font-size:0.9rem;
+}
+.section-body th {
+  background:rgba(201,169,110,0.12); color:var(--gold);
+  padding:10px 12px; text-align:left; font-weight:600;
+  border:1px solid var(--border);
+}
+body.rtl .section-body th { text-align:right; }
+.section-body td {
+  padding:8px 12px; border:1px solid var(--border);
+  background:rgba(255,255,255,0.02);
+}
+.section-body tr:hover td { background:rgba(255,255,255,0.04); }
+.section-body hr { border:none; border-top:1px solid var(--border); margin:20px 0; }
+
+/* ===== IMAGE GALLERY / CAROUSEL ===== */
+.img-gallery {
+  margin:16px 0; position:relative;
+  background:rgba(0,0,0,0.3); border-radius:8px;
+  overflow:hidden;
+}
+.img-gallery .gallery-inner {
+  display:flex; overflow:hidden; position:relative;
+}
+.img-gallery .gallery-slide {
+  display:flex; transition:transform .5s ease;
+}
+.img-gallery .gallery-slide img {
+  width:100%; height:auto; max-height:500px;
+  object-fit:contain; flex-shrink:0;
+  cursor:pointer;
+}
+
+.gallery-nav {
+  display:flex; justify-content:center; align-items:center;
+  gap:12px; padding:8px;
+  background:rgba(0,0,0,0.5);
+}
+.gallery-nav button {
+  background:var(--gold); color:var(--darker);
+  border:none; width:36px; height:36px; border-radius:50%;
+  cursor:pointer; font-size:1.1rem; font-weight:700;
+  transition:all .3s; display:flex; align-items:center; justify-content:center;
+}
+.gallery-nav button:hover { background:var(--gold-light); transform:scale(1.1); }
+.gallery-nav .gallery-dots { display:flex; gap:6px; }
+.gallery-nav .dot {
+  width:10px; height:10px; border-radius:50%;
+  background:var(--text-dim); cursor:pointer; transition:all .3s;
+  border:none;
+}
+.gallery-nav .dot.active { background:var(--gold); transform:scale(1.3); }
+.gallery-nav .gallery-counter {
+  color:var(--text-dim); font-size:0.8rem; min-width:50px; text-align:center;
+}
+.img-caption {
+  font-size:0.8rem; color:var(--text-dim);
+  text-align:center; padding:6px; font-style:italic;
+}
+
+/* Lightbox */
+.lightbox {
+  display:none; position:fixed; z-index:9999;
+  top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.92);
+  justify-content:center; align-items:center;
+  cursor:zoom-out;
+}
+.lightbox.open { display:flex; }
+.lightbox img {
+  max-width:95vw; max-height:95vh;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow:0 0 60px rgba(0,0,0,0.8);
+}
+.lightbox .close-lb {
+  position:absolute; top:20px; right:30px;
+  font-size:2.5rem; color:#fff; cursor:pointer;
+  transition:color .3s;
+}
+.lightbox .close-lb:hover { color:var(--gold); }
+
+/* ===== TOC BOTTOM NAV ===== */
+.bottom-nav {
+  display:flex; justify-content:space-between; gap:12px;
+  margin-top:30px; padding:20px 0;
+  border-top:1px solid var(--border);
+}
+.bottom-nav button {
+  padding:12px 24px; border:none; border-radius:8px;
+  cursor:pointer; font-weight:600; font-size:0.9rem;
+  transition:all .3s;
+  background:rgba(201,169,110,0.1); color:var(--gold);
+  border:1px solid var(--gold-dark);
+}
+.bottom-nav button:hover { background:var(--gold); color:var(--darker); }
+.bottom-nav button:disabled { opacity:0.3; cursor:default; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .content { padding:20px; }
+}
+@media (max-width: 768px) {
+  .layout { flex-direction:column; }
+  .sidebar {
+    display:none; width:100%;
+    position:fixed; top:64px; left:0; z-index:999;
+    height:calc(100vh - 64px);
+    border-right:none;
+  }
+  .sidebar.open { display:block; }
+  .sidebar-toggle {
+    display:flex !important;
+    align-items:center; justify-content:center;
+    background:var(--gold); color:var(--darker);
+    border:none; width:36px; height:36px; border-radius:6px;
+    cursor:pointer; font-size:1.2rem;
+  }
+  .content { padding:16px; }
+  .section-body.open { max-height:9000px; }
+  .section-header { padding:14px 16px; }
+  .section-body.open { padding:16px; }
+  header .logo h1 { font-size:1rem; }
+  header .logo span { display:none; }
+  .hero h2 { font-size:1.4rem; }
+  .section-body table { font-size:0.8rem; }
+  .section-body th, .section-body td { padding:6px 8px; }
+}
+
+@media (max-width: 480px) {
+  .img-gallery .gallery-slide img { max-height:300px; }
+  .section-header h3 { font-size:0.95rem; }
+  .section-body.open { max-height:12000px; }
+  header { padding:8px 12px; }
+  .lang-btn { padding:6px 12px; font-size:0.75rem; }
+}
+
+/* ===== LAZY LOAD ===== */
+.lazy-img { opacity:0; transition:opacity .5s; }
+.lazy-img.loaded { opacity:1; }
+
+/* ===== PRINT ===== */
+@media print {
+  .sidebar, header, .bottom-nav, .gallery-nav, .section-header { display:none !important; }
+  .section-body { max-height:none !important; overflow:visible !important; padding:24px !important; }
+  .section { break-inside:avoid; border:1px solid #ccc; }
+  body { background:#fff; color:#000; }
+  .section-body img { max-width:500px !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="logo">
+    <img src="https://laviparkhotels.com/img/logo.png" alt="Lavipark Hotel" onerror="this.style.display='none'">
+    <div>
+      <h1 id="site-title">Lavipark Hotel Guide</h1>
+      <span id="site-sub">Complete Management Documentation</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <button class="sidebar-toggle" id="mobileMenuBtn" style="display:none;" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="switchLang('en')" id="langEn">EN</button>
+      <button class="lang-btn" onclick="switchLang('ar')" id="langAr">عربي</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h2 id="heroTitle">Lavipark Hotel — Complete Management Guide</h2>
+  <p id="heroSub">Comprehensive documentation for hotel administrators and staff. Learn to manage hotels, rooms, bookings, customers, payments, and more.</p>
+  <div class="badge" id="heroBadge">📖 Bilingual Guide · English / العربية</div>
+</section>
+
+<!-- ===== LAYOUT ===== -->
+<div class="layout">
+
+<!-- ===== SIDEBAR ===== -->
+<nav class="sidebar" id="sidebar">
+  <div class="toc-title" id="tocTitle">📑 Table of Contents</div>
+  <!-- Populated by JS -->
+  <div id="tocContainer"></div>
+</nav>
+
+<!-- ===== CONTENT ===== -->
+<main class="content" id="mainContent">
+  <!-- Populated by JS -->
+</main>
+
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close-lb">&times;</span>
+  <img id="lightboxImg" src="" alt="Enlarged screenshot">
+</div>
+
+<script>
+// ===== DATA =====
+const guideData = {
+  en: {
+    title: 'Lavipark Hotel Guide',
+    sub: 'Complete Management Documentation',
+    heroTitle: 'Lavipark Hotel — Complete Management Guide',
+    heroSub: 'Comprehensive documentation for hotel administrators and staff. Learn to manage hotels, rooms, bookings, customers, payments, and more.',
+    heroBadge: '📖 Bilingual Guide · English / العربية',
+    toc: '📑 Table of Contents',
+    sections: [
+      {
+        id: 'overview', num: 1,
+        title: 'System Overview',
+        subs: ['Key Features', 'System URLs'],
+        content: `
+          <p>The Lavipark Hotel Management System is a complete hotel booking and management platform designed for the Saudi Arabian hospitality market.</p>
+          <p><strong>Supported Hotels:</strong></p>
+          <ul>
+            <li><strong>Masa Al Mashaaer Hotel</strong> — Al Aziziyah District, Makkah</li>
+            <li><strong>Lavi Park Hotel</strong> — Al Misfalah District, Makkah</li>
+          </ul>
+          <h4>Key Features</h4>
+          <ul>
+            <li>Bilingual interface: Arabic (primary) and English</li>
+            <li>Full online booking with real-time availability</li>
+            <li>Admin control panel for complete hotel operations</li>
+            <li>Multiple payment methods: Bank wire, Check, Cash on arrival</li>
+            <li>Multi-currency: Saudi Riyal (﷼) and US Dollar ($)</li>
+            <li>Advanced reports & analytics</li>
+          </ul>
+          <h4>System URLs</h4>
+          <table><tr><th>Component</th><th>URL</th></tr>
+          <tr><td>Main Website</td><td><code>https://laviparkhotels.com</code></td></tr>
+          <tr><td>Arabic Site</td><td><code>https://laviparkhotels.com/ar/</code></td></tr>
+          <tr><td>English Site</td><td><code>https://laviparkhotels.com/en/</code></td></tr>
+          <tr><td>Admin Panel</td><td><code>https://laviparkhotels.com/admin707akbcps/</code></td></tr>
+          </table>
+          <div class="img-gallery" imgs="01-homepage-ar,02-homepage-en"></div>
+        `
+      },
+      {
+        id: 'login', num: 2,
+        title: 'Admin Login',
+        subs: ['Accessing the Admin Panel', 'Login Steps', 'Language Switching', 'Password Recovery'],
+        content: `
+          <h4>Accessing the Admin Panel</h4>
+          <p>Open your browser and navigate to: <code>https://laviparkhotels.com/admin707akbcps/</code></p>
+          <div class="img-gallery" imgs="07-admin-login,08-admin-dashboard"></div>
+          <h4>Login Steps</h4>
+          <ol>
+            <li>Enter your <strong>Email address</strong> (admin@gmail.com for main admin)</li>
+            <li>Enter your <strong>Password</strong></li>
+            <li>Click <strong>Login</strong> (تسجيل الدخول)</li>
+            <li>You will be taken to the admin dashboard</li>
+          </ol>
+          <h4>Language Switching</h4>
+          <p>Click <strong>AR</strong> in the top toolbar for Arabic interface, or <strong>EN</strong> for English.</p>
+          <div class="img-gallery" imgs="26-admin-dashboard-ar,25-admin-dashboard-full"></div>
+          <h4>Password Recovery</h4>
+          <ol>
+            <li>Click <strong>Forgot your password?</strong> on the login screen</li>
+            <li>Enter your registered email</li>
+            <li>A password reset link will be sent to your email</li>
+          </ol>
+        `
+      },
+      {
+        id: 'dashboard', num: 3,
+        title: 'Admin Dashboard — KPIs & Statistics',
+        subs: ['KPI Bar Explained', 'Operations Today', 'Occupancy Widget', 'Revenue Section', 'Filtering Data'],
+        content: `
+          <p>The dashboard is your command center. It provides a real-time overview of all hotel operations.</p>
+          <div class="img-gallery" imgs="51-admin-dashboard-en,08-admin-dashboard"></div>
+          <h4>Key Performance Indicators (KPI Bar)</h4>
+          <p>The top row shows summary statistics for the selected period:</p>
+          <table>
+            <tr><th>Indicator</th><th>Description</th></tr>
+            <tr><td>Guests (Adults/Children)</td><td>Total guest count</td></tr>
+            <tr><td>Cancelled Bookings</td><td>Number of cancelled reservations</td></tr>
+            <tr><td>Guest Messages</td><td>New messages from guests</td></tr>
+            <tr><td>Occupied Rooms</td><td>Currently occupied rooms</td></tr>
+            <tr><td>New Bookings</td><td>New reservations created</td></tr>
+            <tr><td>Departures</td><td>Scheduled check-outs</td></tr>
+            <tr><td>Arrivals</td><td>Scheduled check-ins</td></tr>
+            <tr><td>Pending Bookings</td><td>Unconfirmed bookings</td></tr>
+          </table>
+          <h4>Operations Today</h4>
+          <p>Tabbed tables showing: <strong>Arrivals</strong>, <strong>Departures</strong>, <strong>In-House</strong>, <strong>New Bookings</strong>, <strong>Cancellations</strong>.</p>
+          <h4>Occupancy Widget</h4>
+          <p>Visual chart showing: Occupied, Available, and Unavailable rooms.</p>
+          <h4>Revenue Section</h4>
+          <ul>
+            <li><strong>Total Sales</strong> — Revenue across all bookings</li>
+            <li><strong>Average Order Value</strong> — Average booking value</li>
+            <li><strong>Net Profit</strong> — Revenue minus costs</li>
+            <li><strong>Conversion Rate</strong> — Booking conversion percentage</li>
+            <li><strong>Visits</strong> — Website traffic</li>
+          </ul>
+          <h4>Filtering Dashboard Data</h4>
+          <ul>
+            <li><strong>Hotel Filter</strong>: Select "All Hotels" or a specific hotel</li>
+            <li><strong>Date Range</strong>: Calendar date picker</li>
+            <li><strong>Quick Select</strong>: Day, Month, Year buttons</li>
+          </ul>
+          <div class="img-gallery" imgs="50-admin-side-menu,40-reports-analytics"></div>
+        `
+      },
+      {
+        id: 'hotels', num: 4,
+        title: 'Managing Hotels',
+        subs: ['Viewing Hotel List', 'Adding a New Hotel', 'SEO Settings', 'Images & Restrictions', 'Editing Hotels'],
+        content: `
+          <h4>Viewing Hotel List</h4>
+          <p>From the sidebar, go to <strong>Manage Hotels → Manage Hotels</strong></p>
+          <div class="img-gallery" imgs="52-manage-hotels-en,27-manage-hotels-full"></div>
+          <h4>Adding a New Hotel</h4>
+          <p>Click <strong>Add new Hotel</strong> and fill in the form:</p>
+          <div class="img-gallery" imgs="53-add-hotel-form,28-add-new-hotel-form"></div>
+          <table>
+            <tr><th>Field</th><th>Description</th></tr>
+            <tr><td>Enable Hotel</td><td>Enable/disable the hotel</td></tr>
+            <tr><td>Hotel Name</td><td>Name in Arabic and English</td></tr>
+            <tr><td>Short Description</td><td>Brief hotel description</td></tr>
+            <tr><td>Description</td><td>Full description for hotel page</td></tr>
+            <tr><td>Phone / Email</td><td>Contact details (booking info sent here)</td></tr>
+            <tr><td>Address</td><td>Full address, city, state, country</td></tr>
+            <tr><td>Rating</td><td>Star rating 1-5</td></tr>
+            <tr><td>Check-In/Out</td><td>Set times in hours/minutes</td></tr>
+            <tr><td>Hotel Policies</td><td>Pet policy, cancellation rules, etc.</td></tr>
+          </table>
+          <h4>SEO Settings</h4>
+          <p>Optimize search engine visibility: Friendly URL, Meta Title, Meta Description, Meta Keywords.</p>
+          <h4>Images & Restrictions</h4>
+          <ul>
+            <li><strong>Images</strong>: Upload photos, select cover image</li>
+            <li><strong>Restrictions</strong>: Set max advance booking date, minimum booking offset</li>
+            <li><strong>Refund Policies</strong>: Enable refunds and select rules</li>
+            <li><strong>Features</strong>: Assign services (WiFi, parking, breakfast, etc.)</li>
+          </ul>
+          <div class="img-gallery" imgs="60-hotel-features-en,36-hotel-features"></div>
+        `
+      },
+      {
+        id: 'rooms', num: 5,
+        title: 'Managing Rooms',
+        subs: ['Current Room Types', 'Adding a New Room Type', 'Pricing', 'Hotel Features'],
+        content: `
+          <h4>Current Room Types</h4>
+          <table>
+            <tr><th>Hotel</th><th>Room Type</th><th>Price/Night</th><th>Capacity</th></tr>
+            <tr><td><strong>Lavi Park Hotel</strong></td><td>King Room</td><td>250 SAR</td><td>2 guests</td></tr>
+            <tr><td></td><td>Triple Room</td><td>250 SAR</td><td>3 guests</td></tr>
+            <tr><td></td><td>Quad Room</td><td>220 SAR</td><td>4 guests</td></tr>
+            <tr><td><strong>Masa Al Mashaaer Hotel</strong></td><td>Double Room</td><td>180 SAR</td><td>2 guests</td></tr>
+            <tr><td></td><td>Triple Room</td><td>280 SAR</td><td>3 guests</td></tr>
+            <tr><td></td><td>Family Quad Room</td><td>300 SAR</td><td>4 guests</td></tr>
+            <tr><td></td><td>Executive Suite</td><td>1,200 SAR</td><td>2 guests</td></tr>
+          </table>
+          <h4>Adding a New Room Type</h4>
+          <p>From sidebar, go to <strong>Products → Rooms</strong> then click <strong>Add New Room</strong>.</p>
+          <div class="img-gallery" imgs="55-add-room-form,54-room-types-en"></div>
+          <table>
+            <tr><th>Field</th><th>Description</th></tr>
+            <tr><td>Room Name</td><td>Name in Arabic and English</td></tr>
+            <tr><td>Hotel Assignment</td><td>Which hotel this room belongs to</td></tr>
+            <tr><td>Description</td><td>Detailed room description</td></tr>
+            <tr><td>Price</td><td>Nightly rate in SAR</td></tr>
+            <tr><td>Max Adults / Children</td><td>Occupancy limits</td></tr>
+            <tr><td>Number of Rooms</td><td>Total rooms of this type</td></tr>
+            <tr><td>Images</td><td>Room photos</td></tr>
+            <tr><td>Amenities</td><td>Available features</td></tr>
+          </table>
+          <h4>Pricing Options</h4>
+          <ul>
+            <li><strong>Base Price</strong>: Standard nightly rate</li>
+            <li><strong>Seasonal Pricing</strong>: Different prices for specific dates</li>
+            <li><strong>Special Offers</strong>: Promotional discounts</li>
+          </ul>
+          <div class="img-gallery" imgs="36-hotel-features,37-general-settings-full"></div>
+        `
+      },
+      {
+        id: 'features', num: 6,
+        title: 'Hotel Features (Amenities)',
+        subs: ['Adding Features', 'Editing & Deleting', 'Assigning to Hotels'],
+        content: `
+          <p>Hotel features are services and amenities your hotels offer. Create, edit, and manage them here.</p>
+          <h4>Adding a New Feature</h4>
+          <p>Go to <strong>Manage Hotels → Manage Hotel Features</strong> → <strong>Add a new feature</strong></p>
+          <div class="img-gallery" imgs="60-hotel-features-en,36-hotel-features"></div>
+          <table>
+            <tr><th>Field</th><th>Description</th></tr>
+            <tr><td>Parent Feature Name</td><td>Main category (e.g., WiFi, Breakfast)</td></tr>
+            <tr><td>Position</td><td>Display order number</td></tr>
+            <tr><td>Child Features</td><td>Sub-features (e.g., Free WiFi, High-Speed)</td></tr>
+          </table>
+        `
+      },
+      {
+        id: 'bookings', num: 7,
+        title: 'Managing Bookings',
+        subs: ['Viewing Bookings', 'Booking Status Flow', 'Modifying & Cancelling', 'Invoices', 'Order Statuses'],
+        content: `
+          <h4>Viewing Bookings</h4>
+          <p>From sidebar, go to <strong>Orders</strong></p>
+          <div class="img-gallery" imgs="58-orders-en,33-orders-list-full"></div>
+          <ul>
+            <li>Booking reference number</li>
+            <li>Customer name</li>
+            <li>Hotel name & room type</li>
+            <li>Check-in/out dates</li>
+            <li>Total price</li>
+            <li>Payment status</li>
+          </ul>
+          <h4>Booking Status Flow</h4>
+          <ol>
+            <li><strong>Pending</strong> — Awaiting payment</li>
+            <li><strong>Confirmed</strong> — Payment received</li>
+            <li><strong>Checked-In</strong> — Guest arrived</li>
+            <li><strong>Checked-Out</strong> — Guest departed</li>
+            <li><strong>Cancelled</strong> — Booking cancelled</li>
+          </ol>
+          <h4>Modifying a Booking</h4>
+          <p>Open booking → Edit dates/room/guest → Click <strong>Update</strong> (price recalculates automatically).</p>
+          <div class="img-gallery" imgs="34-order-detail,70-shopping-carts-en"></div>
+          <h4>Order Statuses</h4>
+          <div class="img-gallery" imgs="49-order-statuses,67-order-statuses-en"></div>
+          <table>
+            <tr><th>Status</th><th>Meaning</th></tr>
+            <tr><td>Awaiting payment</td><td>Payment not yet received</td></tr>
+            <tr><td>Payment accepted</td><td>Payment confirmed</td></tr>
+            <tr><td>Processing</td><td>Order being processed</td></tr>
+            <tr><td>Completed</td><td>Stay completed</td></tr>
+            <tr><td>Cancelled</td><td>Order cancelled</td></tr>
+            <tr><td>Refunded</td><td>Payment refunded</td></tr>
+          </table>
+        `
+      },
+      {
+        id: 'booknow', num: 8,
+        title: 'Book Now — Walk-in Bookings',
+        subs: ['Booking Calendar', 'Creating Walk-in Booking', 'Cart Details', 'Swapping Rooms'],
+        content: `
+          <p>Create bookings from the back office for walk-in guests. View room statuses at a glance and manage the booking calendar.</p>
+          <h4>Booking Calendar</h4>
+          <div class="img-gallery" imgs="56-booking-calendar-en,31-booking-calendar-full"></div>
+          <ul>
+            <li>✅ <strong>Available</strong> — Room is available</li>
+            <li>⚠️ <strong>Partially Available</strong> — Not fully available</li>
+            <li>❌ <strong>Booked</strong> — Already reserved</li>
+            <li>🔧 <strong>Unavailable</strong> — Out of service</li>
+          </ul>
+          <h4>Creating a Walk-in Booking</h4>
+          <ol>
+            <li>Fill booking form: Check-in/out dates, hotel, room type, occupancy</li>
+            <li>Click <strong>Search</strong> for available rooms</li>
+            <li>Select rooms → Add to cart</li>
+            <li>Proceed to checkout</li>
+          </ol>
+          <div class="img-gallery" imgs="57-book-now-en,32-book-now"></div>
+          <h4>Cart Details</h4>
+          <ul>
+            <li>Add extra services</li>
+            <li>Select existing or new customer</li>
+            <li>Choose currency and language</li>
+            <li>Apply voucher codes</li>
+            <li>View final price summary</li>
+          </ul>
+        `
+      },
+      {
+        id: 'customers', num: 9,
+        title: 'Managing Customers',
+        subs: ['Viewing Customers', 'Adding Customers', 'Customer Details'],
+        content: `
+          <h4>Viewing Customer List</h4>
+          <p>From sidebar, go to <strong>Customers</strong></p>
+          <div class="img-gallery" imgs="59-customers-en,35-customers-list-full"></div>
+          <p>Each customer shows: Name, Email, Phone, Total Bookings, Total Spent, Registration Date.</p>
+          <h4>Adding a New Customer</h4>
+          <ol>
+            <li>Click <strong>Add New Customer</strong></li>
+            <li>Enter: First name, Last name, Email, Phone, Password</li>
+            <li>Click <strong>Save</strong></li>
+          </ol>
+          <p>Click a customer name to view their booking history, order history, messages, and saved addresses.</p>
+        `
+      },
+      {
+        id: 'payments', num: 10,
+        title: 'Orders & Payments',
+        subs: ['Payment Methods', 'Managing Modules', 'Invoices & Refunds'],
+        content: `
+          <h4>Supported Payment Methods</h4>
+          <ul>
+            <li><strong>Bank Wire Transfer</strong> — Guest transfers to hotel account</li>
+            <li><strong>Check Payment</strong> — Payment by check</li>
+            <li><strong>Cash on Arrival</strong> — Pay at reception</li>
+          </ul>
+          <h4>Managing Payment Modules</h4>
+          <p>Go to <strong>Modules</strong> from sidebar. Search for the payment module and click Install/Uninstall.</p>
+          <div class="img-gallery" imgs="71-modules-en,41-modules-list"></div>
+          <h4>Invoices</h4>
+          <p>Open order → Click <strong>Invoice</strong> → PDF generated for download.</p>
+          <h4>Refunds</h4>
+          <p>Open order → Click <strong>Refund</strong> → Enter amount → Process.</p>
+        `
+      },
+      {
+        id: 'cms', num: 11,
+        title: 'Content Management (CMS)',
+        subs: ['Editing Pages', 'Adding Pages', 'Contact Page'],
+        content: `
+          <h4>Editing CMS Pages</h4>
+          <p>From sidebar, go to <strong>CMS → CMS Pages</strong></p>
+          <div class="img-gallery" imgs="68-cms-content-en,46-cms-content-full"></div>
+          <p>Select page → Update content in Arabic and English → Click <strong>Save</strong></p>
+          <p>Use the WYSIWYG editor to format text and add images.</p>
+          <div class="img-gallery" imgs="47-edit-cms-page,24-cms-content"></div>
+          <h4>Adding a New Page</h4>
+          <ol>
+            <li>Click <strong>Add New Page</strong></li>
+            <li>Enter title and content in both languages</li>
+            <li>Choose navigation visibility and publication status</li>
+            <li>Save</li>
+          </ol>
+          <h4>Contact Page</h4>
+          <div class="img-gallery" imgs="23-contact-en,22-contact-ar"></div>
+          <p>Contact form, phone: +966 12 538 4066, email: lavipark7592@gmail.com</p>
+        `
+      },
+      {
+        id: 'facilities', num: 12,
+        title: 'Additional Facilities',
+        subs: ['Adding Facilities', 'How They Appear to Customers'],
+        content: `
+          <p>Extra services like room service, airport transfer, etc.</p>
+          <h4>Adding a New Facility</h4>
+          <p>Go to <strong>Manage Hotels → Additional Facilities</strong> → <strong>Add a new facility</strong></p>
+          <div class="img-gallery" imgs="62-additional-facilities-en,38-additional-facilities"></div>
+          <table>
+            <tr><th>Field</th><th>Description</th></tr>
+            <tr><td>Facility Name</td><td>Name of the extra service</td></tr>
+            <tr><td>Create Advance Option</td><td>Dynamic price calculation</td></tr>
+            <tr><td>Tax Rule</td><td>Applicable tax</td></tr>
+            <tr><td>Per-day Calculation</td><td>If price is per day vs. total stay</td></tr>
+          </table>
+          <p>Customers see these as <strong>"Extra Services"</strong> during checkout.</p>
+        `
+      },
+      {
+        id: 'refunds', num: 13,
+        title: 'Refund Rules',
+        subs: ['Creating Rules', 'Processing Requests'],
+        content: `
+          <h4>Creating Refund Rules</h4>
+          <p>Go to <strong>Manage Hotels → Manage Order Refund Rules</strong></p>
+          <div class="img-gallery" imgs="39-refund-rules,36-hotel-features"></div>
+          <ul>
+            <li>Set time frame before check-in</li>
+            <li>Define refund percentage</li>
+            <li>Specify applicable scenarios</li>
+          </ul>
+          <h4>Processing Refund Requests</h4>
+          <p>Review request → Click <strong>Approve</strong> or <strong>Decline</strong> based on policy.</p>
+        `
+      },
+      {
+        id: 'reports', num: 14,
+        title: 'Reports & Analytics',
+        subs: ['Available Reports', 'Generating Reports', 'KPIs Explained', 'Exporting'],
+        content: `
+          <p>Advanced analytics for data-driven decision making.</p>
+          <div class="img-gallery" imgs="63-reports-en,40-reports-analytics"></div>
+          <h4>Available Reports</h4>
+          <ul>
+            <li><strong>Sales Report</strong> — Revenue by hotel, room type, period</li>
+            <li><strong>Occupancy Report</strong> — Room occupancy rates</li>
+            <li><strong>Booking Report</strong> — Booking trends</li>
+            <li><strong>Customer Report</strong> — Demographics & behavior</li>
+            <li><strong>Cancellation Report</strong> — Rates & reasons</li>
+          </ul>
+          <h4>Key KPIs</h4>
+          <table>
+            <tr><th>Category</th><th>KPI</th><th>Description</th></tr>
+            <tr><td>Revenue</td><td>Total Sales</td><td>Total revenue from all bookings</td></tr>
+            <tr><td>Revenue</td><td>Avg Order Value</td><td>Average booking value</td></tr>
+            <tr><td>Revenue</td><td>Conversion Rate</td><td>% of visitors who book</td></tr>
+            <tr><td>Occupancy</td><td>Occupancy Rate</td><td>% of occupied rooms</td></tr>
+            <tr><td>Occupancy</td><td>Avg Length of Stay</td><td>Average nights per guest</td></tr>
+            <tr><td>Customers</td><td>New Customers</td><td>Recently registered</td></tr>
+            <tr><td>Customers</td><td>Returning Customers</td><td>Repeat bookers</td></tr>
+          </table>
+          <p>Export: <strong>PDF</strong> (printable) or <strong>CSV</strong> (spreadsheet).</p>
+        `
+      },
+      {
+        id: 'settings', num: 15,
+        title: 'General Settings',
+        subs: ['Search Settings', 'Website Config', 'Contact Details', 'Payment Settings', 'Occupancy', 'Price Rules'],
+        content: `
+          <p>Centralized control over fundamental system configurations.</p>
+          <div class="img-gallery" imgs="61-general-settings-en,37-general-settings-full"></div>
+          <h4>Search Panel Settings</h4>
+          <ul>
+            <li>Enable Hotel Location field</li>
+            <li>Display Hotel Name in search</li>
+            <li>Auto focus next field</li>
+            <li>Hotel name search threshold</li>
+          </ul>
+          <h4>Website Configuration</h4>
+          <p>Hotel name, tagline, short description, primary hotel, launch year, header background image.</p>
+          <h4>Contact Details</h4>
+          <p>Main branch address, phone, email. Support phone and email.</p>
+          <h4>Advance Payment Settings</h4>
+          <ul>
+            <li>Allow/Disallow advance payment</li>
+            <li>Minimum booking amount (%)</li>
+            <li>Include tax with advance payment</li>
+          </ul>
+          <h4>Advanced Price Rules</h4>
+          <p>Create special rates based on dates, seasons, or guest groups.</p>
+          <p>Go to <strong>General Settings → Advanced Price Rules</strong> → Set name, room type, dates, impact type (% or fixed).</p>
+        `
+      },
+      {
+        id: 'languages', num: 16,
+        title: 'Languages & Translations',
+        subs: ['Managing Languages', 'Translation Steps'],
+        content: `
+          <p>System supports Arabic (primary) and English.</p>
+          <div class="img-gallery" imgs="65-languages-en,42-languages"></div>
+          <h4>Managing Languages</h4>
+          <ul>
+            <li>Enable/disable languages</li>
+            <li>Change default language (default: Arabic)</li>
+            <li>Set display order</li>
+          </ul>
+          <h4>Translations</h4>
+          <div class="img-gallery" imgs="69-translations-en,43-translations"></div>
+          <ol>
+            <li>Go to <strong>System → Translations</strong></li>
+            <li>Choose type: Theme (front-end) or Model (other)</li>
+            <li>Select target language</li>
+            <li>Search for text → Enter translation → Save</li>
+          </ol>
+        `
+      },
+      {
+        id: 'currencies', num: 17,
+        title: 'Currencies',
+        content: `
+          <p>SAR (﷼) and USD ($) supported.</p>
+          <div class="img-gallery" imgs="64-currencies-en,48-currencies"></div>
+          <p>Go to <strong>System → Currencies</strong> to edit names, symbols, exchange rates, and status.</p>
+        `
+      },
+      {
+        id: 'employees', num: 18,
+        title: 'Employee Management',
+        subs: ['Adding Employees', 'Permissions'],
+        content: `
+          <h4>Adding Employees</h4>
+          <p>Go to <strong>System → Employees</strong> → <strong>Add new employee</strong></p>
+          <div class="img-gallery" imgs="66-employees-en,44-employees"></div>
+          <ul>
+            <li>First name, Last name</li>
+            <li>Email (used for login)</li>
+            <li>Password</li>
+            <li>Access permissions per section</li>
+            <li>Interface language</li>
+          </ul>
+          <div class="warn-box">⚠️ <strong>Security:</strong> Only grant full admin access to trusted employees.</div>
+        `
+      },
+      {
+        id: 'frontend', num: 19,
+        title: 'Front-End User Guide',
+        subs: ['Browsing', 'Searching & Booking', 'Guest Registration', 'Customer Account', 'Contact'],
+        content: `
+          <h4>Browsing the Website</h4>
+          <p>Open <code>https://laviparkhotels.com</code> — auto-redirects to Arabic. Use <strong>EN | AR</strong> toggle.</p>
+          <div class="img-gallery" imgs="01-homepage-ar,02-homepage-en"></div>
+          <h4>Homepage Elements</h4>
+          <ul>
+            <li>Quick Search Bar (check-in/out, guests)</li>
+            <li>Available Rooms Display</li>
+            <li>Amenities & Services Icons</li>
+            <li>Hotel Interior Gallery</li>
+            <li>Contact Information</li>
+            <li>Customer Reviews</li>
+          </ul>
+          <div class="img-gallery" imgs="06-amenities-ar,05-booking-search-ar"></div>
+          <h4>Searching & Booking</h4>
+          <ol>
+            <li>Select check-in and check-out dates</li>
+            <li>Set number of guests</li>
+            <li>Click <strong>Search</strong></li>
+            <li>Browse rooms with prices and photos</li>
+            <li>Click <strong>Book Now</strong></li>
+            <li>Review cart → Fill in details → Choose payment → Confirm</li>
+          </ol>
+          <div class="img-gallery" imgs="21-room-category-ar-7,20-room-category-en-12"></div>
+          <h4>Guest Registration Options</h4>
+          <ul>
+            <li><strong>Guest Checkout</strong> — Book without account</li>
+            <li><strong>Create Account</strong> — Register for faster future bookings</li>
+          </ul>
+          <h4>Customer Account Features</h4>
+          <ul>
+            <li>View booking history</li>
+            <li>Download invoices (PDF)</li>
+            <li>Update personal info</li>
+            <li>Cancel bookings</li>
+            <li>View saved addresses</li>
+          </ul>
+          <h4>Contact Page</h4>
+          <div class="img-gallery" imgs="22-contact-ar,23-contact-en"></div>
+          <p>Phone: +966 12 538 4066 | Email: lavipark7592@gmail.com</p>
+        `
+      },
+      {
+        id: 'troubleshooting', num: 20,
+        title: 'Troubleshooting',
+        content: `
+          <table>
+            <tr><th>Issue</th><th>Solution</th></tr>
+            <tr><td>No available rooms shown</td><td>Ensure dates selected and check-in is before check-out</td></tr>
+            <tr><td>Dashboard shows wrong data</td><td>Refresh (Ctrl+F5), verify date range and hotel filter</td></tr>
+            <tr><td>Language doesn't switch</td><td>Hard refresh (Ctrl+F5)</td></tr>
+            <tr><td>Email notifications missing</td><td>Check spam folder, verify SMTP settings</td></tr>
+            <tr><td>Images not showing</td><td>Clear site cache, verify image upload size</td></tr>
+            <tr><td>Can't login to admin</td><td>Use "Forgot password". Contact support if fails</td></tr>
+            <tr><td>English text on Arabic pages</td><td>Go to System → Translations, update missing strings</td></tr>
+            <tr><td>Slow page loading</td><td>Clear cache, check internet speed</td></tr>
+            <tr><td>Booking button not working</td><td>Clear browser cache, enable JavaScript, try other browser</td></tr>
+            <tr><td>Wrong room prices</td><td>Check base price and seasonal pricing rules</td></tr>
+          </table>
+          <div class="tip">📞 <strong>Support:</strong> +966 12 538 4066 · lavipark7592@gmail.com</div>
+        `
+      }
+    ]
+  },
+  ar: {
+    title: 'دليل فندق لافي بارك',
+    sub: 'التوثيق الكامل لإدارة النظام',
+    heroTitle: 'نظام إدارة فندق لافي بارك — الدليل الشامل',
+    heroSub: 'توثيق شامل لمسؤولي وموظفي الفندق. تعلم إدارة الفنادق والغرف والحجوزات والعملاء والمدفوعات والمزيد.',
+    heroBadge: '📖 دليل ثنائي اللغة · العربية / English',
+    toc: '📑 فهرس المحتويات',
+    sections: [
+      {
+        id: 'overview', num: 1,
+        title: 'مقدمة عن النظام',
+        subs: ['المميزات الرئيسية', 'روابط النظام'],
+        content: `
+          <p>نظام إدارة فندق لافي بارك هو منصة حجز وإدارة فنادق متكاملة، مصممة لسوق الضيافة السعودي.</p>
+          <p><strong>الفنادق المدعومة:</strong></p>
+          <ul>
+            <li><strong>فندق ماسة المشاعر</strong> — حي العزيزية، مكة المكرمة</li>
+            <li><strong>فندق لفيف بارك</strong> — حي المسفلة، مكة المكرمة</li>
+          </ul>
+          <h4>المميزات الرئيسية</h4>
+          <ul>
+            <li>واجهة ثنائية اللغة: العربية (الأساسية) والإنجليزية</li>
+            <li>حجز إلكتروني كامل مع توفر الغرف في الوقت الفعلي</li>
+            <li>لوحة تحكم إدارية لإدارة جميع عمليات الفندق</li>
+            <li>طرق دفع متعددة: تحويل بنكي، شيك، دفع عند الوصول</li>
+            <li>عملات متعددة: الريال السعودي (﷼) والدولار ($)</li>
+            <li>تقارير وإحصائيات متقدمة</li>
+          </ul>
+          <h4>روابط النظام</h4>
+          <table><tr><th>المكون</th><th>الرابط</th></tr>
+          <tr><td>الموقع الرئيسي</td><td><code>https://laviparkhotels.com</code></td></tr>
+          <tr><td>الموقع العربي</td><td><code>https://laviparkhotels.com/ar/</code></td></tr>
+          <tr><td>الموقع الإنجليزي</td><td><code>https://laviparkhotels.com/en/</code></td></tr>
+          <tr><td>لوحة التحكم</td><td><code>https://laviparkhotels.com/admin707akbcps/</code></td></tr>
+          </table>
+          <div class="img-gallery" imgs="01-homepage-ar,02-homepage-en"></div>
+        `
+      },
+      {
+        id: 'login', num: 2,
+        title: 'الدخول إلى لوحة التحكم',
+        subs: ['فتح صفحة الدخول', 'خطوات تسجيل الدخول', 'تبديل اللغة', 'استعادة كلمة المرور'],
+        content: `
+          <h4>فتح صفحة تسجيل الدخول</h4>
+          <p>افتح الرابط: <code>https://laviparkhotels.com/admin707akbcps/</code></p>
+          <div class="img-gallery" imgs="07-admin-login,08-admin-dashboard"></div>
+          <h4>خطوات تسجيل الدخول</h4>
+          <ol>
+            <li>أدخل <strong>البريد الإلكتروني</strong> (admin@gmail.com للمسؤول الرئيسي)</li>
+            <li>أدخل <strong>كلمة المرور</strong></li>
+            <li>انقر على <strong>تسجيل الدخول</strong></li>
+            <li>ستنتقل إلى لوحة التحكم الرئيسية</li>
+          </ol>
+          <h4>تبديل لغة لوحة التحكم</h4>
+          <p>انقر على <strong>AR</strong> للواجهة العربية أو <strong>EN</strong> للإنجليزية.</p>
+          <div class="img-gallery" imgs="26-admin-dashboard-ar,25-admin-dashboard-full"></div>
+        `
+      },
+      {
+        id: 'dashboard', num: 3,
+        title: 'لوحة التحكم — المؤشرات والإحصائيات',
+        subs: ['مؤشرات الأداء', 'عمليات اليوم', 'مؤشر الإشغال', 'الإيرادات', 'تصفية البيانات'],
+        content: `
+          <p>لوحة التحكم هي مركز القيادة. توفر نظرة شاملة على جميع العمليات في الوقت الفعلي.</p>
+          <div class="img-gallery" imgs="51-admin-dashboard-en,08-admin-dashboard"></div>
+          <h4>مؤشرات الأداء الرئيسية (KPI)</h4>
+          <table>
+            <tr><th>المؤشر</th><th>الشرح</th></tr>
+            <tr><td>الضيوف (بالغون/أطفال)</td><td>إجمالي عدد الضيوف</td></tr>
+            <tr><td>الحجوزات الملغاة</td><td>عدد الحجوزات الملغاة</td></tr>
+            <tr><td>رسائل الضيوف</td><td>الرسائل الجديدة</td></tr>
+            <tr><td>الغرف المشغولة</td><td>الغرف المحجوزة حالياً</td></tr>
+            <tr><td>حجوزات جديدة</td><td>الحجوزات الجديدة</td></tr>
+            <tr><td>مغادرة</td><td>حالات المغادرة المجدولة</td></tr>
+            <tr><td>وصول</td><td>حالات الوصول المجدولة</td></tr>
+            <tr><td>حجوزات معلقة</td><td>الحجوزات غير المؤكدة</td></tr>
+          </table>
+          <h4>الإيرادات</h4>
+          <ul>
+            <li><strong>إجمالي المبيعات</strong> — إيرادات جميع الحجوزات</li>
+            <li><strong>متوسط قيمة الطلب</strong> — متوسط قيمة الحجز</li>
+            <li><strong>صافي الربح</strong> — الإيرادات مطروحاً منها التكاليف</li>
+            <li><strong>معدل التحويل</strong> — نسبة التحويل من زوار إلى حاجزين</li>
+          </ul>
+          <div class="img-gallery" imgs="50-admin-side-menu,40-reports-analytics"></div>
+        `
+      },
+      {
+        id: 'hotels', num: 4,
+        title: 'إدارة الفنادق',
+        subs: ['عرض القائمة', 'إضافة فندق جديد', 'تحسين محركات البحث', 'الصور والقيود'],
+        content: `
+          <h4>عرض قائمة الفنادق</h4>
+          <p>من القائمة الجانبية: <strong>إدارة الفندق ← إدارة الفندق</strong></p>
+          <div class="img-gallery" imgs="52-manage-hotels-en,27-manage-hotels-full"></div>
+          <h4>إضافة فندق جديد</h4>
+          <p>انقر على <strong>إضافة فندق جديد</strong></p>
+          <div class="img-gallery" imgs="53-add-hotel-form,28-add-new-hotel-form"></div>
+          <table>
+            <tr><th>الحقل</th><th>الوصف</th></tr>
+            <tr><td>تفعيل الفندق</td><td>تشغيل/إيقاف الفندق</td></tr>
+            <tr><td>اسم الفندق</td><td>الاسم بالعربية والإنجليزية</td></tr>
+            <tr><td>وصف قصير/تفصيلي</td><td>وصف الفندق</td></tr>
+            <tr><td>هاتف/بريد</td><td>بيانات الاتصال</td></tr>
+            <tr><td>العنوان</td><td>العنوان الكامل</td></tr>
+            <tr><td>التقييم</td><td>تصنيف 1-5 نجوم</td></tr>
+            <tr><td>وقت الدخول/الخروج</td><td>ضبط الأوقات</td></tr>
+            <tr><td>سياسات الفندق</td><td>سياسة الحيوانات الأليفة والإلغاء</td></tr>
+          </table>
+          <div class="img-gallery" imgs="60-hotel-features-en,36-hotel-features"></div>
+        `
+      },
+      {
+        id: 'rooms', num: 5,
+        title: 'إدارة الغرف',
+        subs: ['أنواع الغرف', 'إضافة غرفة جديدة', 'الأسعار'],
+        content: `
+          <h4>أنواع الغرف الحالية</h4>
+          <table>
+            <tr><th>الفندق</th><th>نوع الغرفة</th><th>السعر/ليلة</th><th>السعة</th></tr>
+            <tr><td><strong>فندق لفيف بارك</strong></td><td>غرفة كينج</td><td>250 ريال</td><td>شخصان</td></tr>
+            <tr><td></td><td>غرفة ثلاثية</td><td>250 ريال</td><td>3 أشخاص</td></tr>
+            <tr><td></td><td>غرفة رباعية</td><td>220 ريال</td><td>4 أشخاص</td></tr>
+            <tr><td><strong>فندق ماسة المشاعر</strong></td><td>غرفة مزدوجة</td><td>180 ريال</td><td>شخصان</td></tr>
+            <tr><td></td><td>غرفة ثلاثية</td><td>280 ريال</td><td>3 أشخاص</td></tr>
+            <tr><td></td><td>غرفة عائلية رباعية</td><td>300 ريال</td><td>4 أشخاص</td></tr>
+            <tr><td></td><td>جناح تنفيذي</td><td>1,200 ريال</td><td>شخصان</td></tr>
+          </table>
+          <h4>إضافة غرفة جديدة</h4>
+          <p>من القائمة الجانبية: <strong>المنتجات ← الغرف</strong> ثم <strong>إضافة غرفة جديدة</strong></p>
+          <div class="img-gallery" imgs="55-add-room-form,54-room-types-en"></div>
+        `
+      },
+      {
+        id: 'bookings', num: 7,
+        title: 'إدارة الحجوزات',
+        subs: ['عرض الحجوزات', 'حالات الحجز', 'التعديل والإلغاء'],
+        content: `
+          <h4>عرض الحجوزات</h4>
+          <p>من القائمة الجانبية: <strong>الطلبات</strong></p>
+          <div class="img-gallery" imgs="58-orders-en,33-orders-list-full"></div>
+          <h4>حالات الحجز</h4>
+          <ol>
+            <li><strong>معلق</strong> — في انتظار الدفع</li>
+            <li><strong>مؤكد</strong> — تم استلام الدفع</li>
+            <li><strong>تم تسجيل الوصول</strong> — وصل الضيف</li>
+            <li><strong>تم تسجيل المغادرة</strong> — غادر الضيف</li>
+            <li><strong>ملغي</strong> — تم الإلغاء</li>
+          </ol>
+          <div class="img-gallery" imgs="34-order-detail,49-order-statuses"></div>
+        `
+      },
+      {
+        id: 'frontend', num: 19,
+        title: 'دليل المستخدم للواجهة الأمامية',
+        subs: ['التصفح', 'البحث والحجز', 'تسجيل العميل'],
+        content: `
+          <h4>تصفح الموقع</h4>
+          <p>افتح <code>https://laviparkhotels.com</code> — سيتم توجيهك تلقائياً للعربية. استخدم <strong>EN | AR</strong> للتبديل.</p>
+          <div class="img-gallery" imgs="01-homepage-ar,02-homepage-en"></div>
+          <h4>عناصر الصفحة الرئيسية</h4>
+          <ul>
+            <li>شريط البحث السريع</li>
+            <li>عرض الغرف المتاحة</li>
+            <li>أيقونات المرافق والخدمات</li>
+            <li>معرض الصور</li>
+            <li>معلومات الاتصال</li>
+          </ul>
+          <div class="img-gallery" imgs="06-amenities-ar,05-booking-search-ar"></div>
+          <h4>البحث والحجز</h4>
+          <ol>
+            <li>اختر تاريخ الوصول والمغادرة</li>
+            <li>حدد عدد الضيوف</li>
+            <li>انقر <strong>بحث</strong></li>
+            <li>تصفح الغرف مع الأسعار والصور</li>
+            <li>انقر <strong>احجز الآن</strong></li>
+          </ol>
+          <div class="img-gallery" imgs="21-room-category-ar-7,20-room-category-en-12"></div>
+        `
+      },
+      {
+        id: 'troubleshooting', num: 20,
+        title: 'استكشاف الأخطاء',
+        content: `
+          <table>
+            <tr><th>المشكلة</th><th>الحل</th></tr>
+            <tr><td>لا تظهر غرف متاحة</td><td>تأكد من تحديد التواريخ وأن تاريخ الوصول قبل المغادرة</td></tr>
+            <tr><td>بيانات لوحة التحكم غير صحيحة</td><td>حدّث المتصفح (Ctrl+F5) وتأكد من نطاق التاريخ</td></tr>
+            <tr><td>اللغة لا تتغير</td><td>حدّث الصفحة (Ctrl+F5)</td></tr>
+            <tr><td>إشعارات البريد الإلكتروني</td><td>تحقق من مجلد البريد العشوائي وإعدادات SMTP</td></tr>
+            <tr><td>لا يمكن تسجيل الدخول</td><td>استخدم "نسيت كلمة المرور" أو تواصل مع الدعم</td></tr>
+          </table>
+          <div class="tip">📞 <strong>الدعم الفني:</strong> +966 12 538 4066 · lavipark7592@gmail.com</div>
+        `
+      }
+    ]
+  }
+};
+
+let currentLang = 'en';
+let currentSection = 0;
+
+// ===== BUILD GALLERY =====
+function buildGallery(container) {
+  const imgs = container.getAttribute('imgs');
+  if (!imgs) return;
+  const names = imgs.split(',');
+  const base = 'https://laviparkhotels.com/guide-images/';
+
+  container.innerHTML = `
+    <div class="gallery-inner">
+      <div class="gallery-slide" id="gslide-${Date.now()}-${Math.random().toString(36).substr(2,5)}">
+        ${names.map(n => `<img class="lazy-img" data-src="${base}${n.trim()}.png" alt="Screenshot" onclick="openLightbox(this.src)" loading="lazy">`).join('')}
+      </div>
+    </div>
+    <div class="gallery-nav">
+      <button onclick="galleryNav(this.parentElement,'prev')">‹</button>
+      <div class="gallery-dots">${names.map((_,i) => `<button class="dot${i===0?' active':''}" data-idx="${i}" onclick="galleryGoTo(this.parentElement.parentElement,${i})"></button>`).join('')}</div>
+      <span class="gallery-counter">1 / ${names.length}</span>
+      <button onclick="galleryNav(this.parentElement,'next')">›</button>
+    </div>
+  `;
+
+  // Lazy load
+  container.querySelectorAll('.lazy-img').forEach(img => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          img.src = img.dataset.src;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+    observer.observe(img);
+  });
+}
+
+function galleryNav(nav, dir) {
+  const slide = nav.parentElement.querySelector('.gallery-slide');
+  const dots = nav.querySelectorAll('.dot');
+  const counter = nav.querySelector('.gallery-counter');
+  const total = dots.length;
+  const active = Array.from(dots).findIndex(d => d.classList.contains('active'));
+  let next = dir === 'next' ? (active + 1) % total : (active - 1 + total) % total;
+  slide.style.transform = `translateX(-${next * 100}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === next));
+  counter.textContent = `${next + 1} / ${total}`;
+}
+
+function galleryGoTo(nav, idx) {
+  const slide = nav.parentElement.querySelector('.gallery-slide');
+  const dots = nav.querySelectorAll('.dot');
+  const counter = nav.querySelector('.gallery-counter');
+  slide.style.transform = `translateX(-${idx * 100}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+  counter.textContent = `${idx + 1} / ${dots.length}`;
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox').classList.add('open');
+  document.getElementById('lightboxImg').src = src;
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ===== BUILD CONTENT =====
+function renderLang(lang) {
+  const data = guideData[lang];
+  if (!data) return;
+
+  currentLang = lang;
+  const isAr = lang === 'ar';
+
+  // Update header
+  document.getElementById('site-title').textContent = data.title;
+  document.getElementById('site-sub').textContent = data.sub;
+  document.getElementById('heroTitle').textContent = data.heroTitle;
+  document.getElementById('heroSub').textContent = data.heroSub;
+  document.getElementById('heroBadge').textContent = data.heroBadge;
+  document.getElementById('tocTitle').textContent = data.toc;
+
+  // RTL
+  document.body.className = isAr ? 'rtl' : '';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+
+  // Lang buttons
+  document.getElementById('langEn').classList.toggle('active', !isAr);
+  document.getElementById('langAr').classList.toggle('active', isAr);
+
+  // Build TOC
+  const toc = document.getElementById('tocContainer');
+  toc.innerHTML = data.sections.map((s, i) => `
+    <a href="javascript:scrollToSection(${i})" class="section-head" data-idx="${i}">${s.num}. ${s.title}</a>
+    ${(s.subs || []).map(sub => `<a href="javascript:scrollToSection(${i})" class="sub" data-idx="${i}">${sub}</a>`).join('')}
+  `).join('');
+
+  // Build sections
+  const main = document.getElementById('mainContent');
+  main.innerHTML = data.sections.map((s, i) => `
+    <div class="section" data-idx="${i}">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h3><span class="num">${s.num}</span> ${s.title}</h3>
+        <svg class="toggle-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="section-body" id="section-${i}">
+        ${s.content}
+      </div>
+    </div>
+  `).join('');
+
+  // Init galleries
+  document.querySelectorAll('.img-gallery').forEach(g => buildGallery(g));
+
+  // Open first section
+  const first = document.querySelector('.section-body');
+  if (first) {
+    first.classList.add('open');
+    first.parentElement.querySelector('.toggle-icon').classList.add('open');
+  }
+}
+
+// ===== INTERACTIONS =====
+function switchLang(lang) {
+  if (lang === currentLang) return;
+  renderLang(lang);
+  localStorage.setItem('guideLang', lang);
+}
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+function scrollToSection(idx) {
+  const el = document.querySelector(`.section[data-idx="${idx}"]`);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Open the section
+    const body = el.querySelector('.section-body');
+    const icon = el.querySelector('.toggle-icon');
+    if (body && !body.classList.contains('open')) {
+      body.classList.add('open');
+      icon.classList.add('open');
+    }
+  }
+  // Close sidebar on mobile
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ===== INIT =====
+const savedLang = localStorage.getItem('guideLang') || 'en';
+renderLang(savedLang);
+</script>
+</body>
+</html>

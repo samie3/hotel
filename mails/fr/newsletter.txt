@@ -1,0 +1,2 @@
+[/{shop_url}] Bonjour {firstname} {lastname}, {message} {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

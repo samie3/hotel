@@ -1,0 +1,453 @@
+# Lavipark Hotel Management System — User Guide
+
+## Table of Contents
+1. [System Overview](#1-system-overview)
+2. [Getting Started — Admin Login](#2-getting-started--admin-login)
+3. [Dashboard Overview](#3-dashboard-overview)
+4. [Managing Hotels](#4-managing-hotels)
+5. [Managing Rooms](#5-managing-rooms)
+6. [Managing Bookings](#6-managing-bookings)
+7. [Managing Customers](#7-managing-customers)
+8. [Managing Orders & Payments](#8-managing-orders--payments)
+9. [Content Management](#9-content-management)
+10. [Reports & Analytics](#10-reports--analytics)
+11. [Front-End User Guide](#11-front-end-user-guide)
+12. [Language & Localization](#12-language--localization)
+13. [Troubleshooting](#13-troubleshooting)
+
+---
+
+## 1. System Overview
+
+The Lavipark Hotel Management System is a complete hotel booking and management platform built for the Saudi Arabian hospitality market. It supports:
+
+- **Two hotels**: Masa Al Mashaaer Hotel (Al Aziziyah) & Lavi Park Hotel (Al Misfalah)
+- **Bilingual interface**: Arabic (primary) and English
+- **Online booking**: Full reservation flow with real-time availability
+- **Admin panel**: Complete management dashboard for hotel operations
+- **Payment methods**: Bank wire transfer and Check payment
+- **Multi-currency**: SAR (﷼) and USD ($)
+
+### System URLs
+
+| Component | URL |
+|-----------|-----|
+| Main website | `https://laviparkhotels.com` |
+| Arabic site | `https://laviparkhotels.com/ar/` |
+| English site | `https://laviparkhotels.com/en/` |
+| Admin panel | `https://laviparkhotels.com/admin707akbcps/` |
+
+---
+
+## 2. Getting Started — Admin Login
+
+### Accessing the Admin Panel
+
+1. Open your browser and navigate to: `https://laviparkhotels.com/admin707akbcps/`
+2. Enter your **Email address** (البريد الإلكتروني)
+3. Enter your **Password** (كلمة المرور)
+4. Click **Login** (تسجيل الدخول)
+
+![Admin Login Screen]
+
+### Switching Language
+
+The admin panel supports both Arabic and English:
+- Click **AR** in the top toolbar for Arabic interface
+- Click **EN** for English interface
+- Google Translate widget at the bottom-right can auto-translate any untranslated text
+
+### Password Recovery
+
+1. Click **Forgot your password?** (نسيت كلمة المرور)
+2. Enter your registered email
+3. A reset link will be sent to your email
+
+---
+
+## 3. Dashboard Overview
+
+The dashboard provides a real-time overview of all hotel operations:
+
+### Key Performance Indicators (KPI Bar)
+
+The top row shows summary statistics for the selected hotel and date range:
+- **Guests (Adults/Children)** — Total guest count for the period
+- **Cancelled Bookings** — Number of cancelled reservations
+- **Guest Messages** — New messages from guests
+- **Occupied Rooms** — Rooms currently occupied
+- **New Bookings** — New reservations created
+- **Departures** — Scheduled check-outs (completed/total)
+- **Arrivals** — Scheduled check-ins (completed/total)
+
+### Operations Today
+
+Tabbed table showing current operations:
+- **Arrivals** — Guests checking in today
+- **Departures** — Guests checking out today
+- **In-House** — Currently staying guests
+- **New Bookings** — Today's new reservations
+- **Cancellations** — Cancelled reservations today
+
+### Occupancy Widget
+
+Visual representation of room occupancy:
+- **Occupied** — Rooms booked and occupied
+- **Available** — Rooms open for booking
+- **Unavailable** — Rooms out of service
+
+### Revenue Section
+
+Financial summary:
+- **Total Sales** — Revenue across all bookings
+- **Average Order Value** — Average booking value
+- **Net Profit** — Revenue minus operating costs
+- **Conversion Rate** — Booking conversion percentage
+- **Visits** — Website traffic
+
+### Filtering Dashboard Data
+
+- **Hotel Filter**: Select "All Hotels" or a specific hotel
+- **Date Range**: Use the calendar to select period
+- **Preset Ranges**: Day, Month, Year quick-select buttons
+
+---
+
+## 4. Managing Hotels
+
+### Adding a New Hotel
+
+1. Go to **Hotel Settings → Add New Hotel** from the sidebar
+2. Fill in the following fields:
+
+| Field | Description |
+|-------|-------------|
+| Hotel Name (AR) | Arabic name of the hotel |
+| Hotel Name (EN) | English name of the hotel |
+| Email | Primary contact email |
+| Phone | Contact phone number |
+| Address | Street address |
+| City | City location |
+| Check-in Time | Standard check-in time (e.g., 15:00) |
+| Check-out Time | Standard check-out time (e.g., 12:00) |
+| Rating | Hotel star rating (1-5) |
+| Description | Hotel description in both languages |
+| Policies | Check-in/check-out policies |
+
+3. Upload hotel images (feature image + gallery)
+4. Click **Save**
+
+### Editing a Hotel
+
+1. Go to **Hotels** from the sidebar
+2. Click the **Edit** (تعديل) icon next to the hotel
+3. Update any fields
+4. Click **Save**
+
+### Activating/Deactivating Hotels
+
+- Toggle the **Active** (نشط) status to show/hide the hotel on the website
+- Inactive hotels are not available for booking
+
+---
+
+## 5. Managing Rooms
+
+### Room Types per Hotel
+
+Each hotel can have multiple room types:
+
+**Lavi Park Hotel:**
+- King Room — 250 SAR/night (2 guests)
+- Triple Room — 250 SAR/night (3 guests)
+- Quad Room — 220 SAR/night (4 guests)
+
+**Masa Al Mashaaer Hotel:**
+- Double Room — 180 SAR/night (2 guests)
+- Triple Room — 280 SAR/night (3 guests)
+- Family Quad Room — 300 SAR/night (4 guests)
+- Executive Suite — 1,200 SAR/night (2 guests)
+
+### Adding a New Room Type
+
+1. Go to **Products → Rooms** from the sidebar
+2. Click **Add New Room**
+3. Configure the room:
+
+| Field | Description |
+|-------|-------------|
+| Room Name | Name in both languages |
+| Hotel Assignment | Select which hotel this room belongs to |
+| Description | Detailed description |
+| Price | Nightly rate in SAR |
+| Max Adults | Maximum adult occupancy |
+| Max Children | Maximum children occupancy |
+| Number of Rooms | Total rooms of this type available |
+| Images | Room photos |
+| Amenities | Select available amenities |
+
+4. Click **Save**
+
+### Setting Room Prices
+
+- **Base Price**: Standard nightly rate
+- **Seasonal Pricing**: Set different prices for different dates
+- **Special Offers**: Create promotional discounts
+
+---
+
+## 6. Managing Bookings
+
+### Viewing Bookings
+
+1. Go to **Orders** (الطلبات) from the sidebar
+2. View all bookings with:
+   - Booking reference number
+   - Customer name
+   - Hotel name
+   - Room type
+   - Check-in/check-out dates
+   - Total price
+   - Payment status
+
+### Booking Status
+
+Bookings go through these statuses:
+1. **Pending** (معلق) — Awaiting payment confirmation
+2. **Confirmed** (مؤكد) — Payment received, booking confirmed
+3. **Checked-In** — Guest has arrived
+4. **Checked-Out** — Guest has departed
+5. **Cancelled** (ملغي) — Booking cancelled
+
+### Modifying a Booking
+
+1. Open the booking from the Orders list
+2. Edit dates, room type, or guest details
+3. Click **Update** (تحديث)
+4. The system will recalculate pricing automatically
+
+### Cancelling a Booking
+
+1. Open the booking
+2. Click **Cancel** (إلغاء)
+3. Select cancellation reason
+4. Process refund if applicable
+
+### Manual Booking
+
+Admin can create bookings on behalf of walk-in guests:
+1. Go to **Orders → Create New Order**
+2. Enter guest details
+3. Select hotel, room type, dates
+4. Set payment method
+5. Confirm the booking
+
+---
+
+## 7. Managing Customers
+
+### Viewing Customer List
+
+1. Go to **Customers** (العملاء) from the sidebar
+2. View all registered customers with:
+   - Name
+   - Email
+   - Phone number
+   - Total bookings
+   - Total spent
+
+### Adding a Customer
+
+1. Click **Add New Customer**
+2. Enter required fields:
+   - First name, Last name
+   - Email address
+   - Phone number
+   - Password (for account creation)
+3. Click **Save**
+
+### Customer Details
+
+Click on a customer to view:
+- Personal information
+- Booking history
+- Order history
+- Messages/communications
+
+---
+
+## 8. Managing Orders & Payments
+
+### Payment Methods
+
+The system supports:
+1. **Bank Wire Transfer** — Guest transfers payment to the hotel's bank account
+2. **Check Payment** — Guest pays by check
+3. **Offline Payment** — Manual payment at hotel reception
+
+### Order Statuses
+
+- **Awaiting payment** — Payment not yet received
+- **Payment accepted** — Payment confirmed
+- **Processing** — Order being processed
+- **Completed** — Stay completed
+- **Cancelled** — Order cancelled
+- **Refunded** — Payment refunded
+
+### Creating an Invoice
+
+1. Go to **Orders → Select an Order**
+2. Click **Invoice** (الفاتورة)
+3. PDF invoice will be generated
+4. Download or send to customer
+
+### Managing Refunds
+
+1. Open the order
+2. Click **Refund** (استرداد)
+3. Enter refund amount
+4. Process the refund
+
+---
+
+## 9. Content Management
+
+### CMS Pages
+
+The system includes standard content pages:
+- **About Us** — Hotel group information
+- **Contact Us** — Contact form and location
+- **Terms & Conditions** — Booking policies
+- **Privacy Policy** — Data handling
+
+### Editing CMS Pages
+
+1. Go to **CMS** (المحتوى) from the sidebar
+2. Select the page to edit
+3. Update content in both Arabic and English
+4. Click **Save**
+
+### Contact Form
+
+Visitors can submit inquiries via the contact form:
+- Messages go to the configured email address
+- Admin can view and reply from the **Customer Service** section
+
+---
+
+## 10. Reports & Analytics
+
+### Available Reports
+
+1. **Sales Report** — Revenue breakdown by hotel, room type, and period
+2. **Occupancy Report** — Room occupancy rates over time
+3. **Booking Report** — Booking trends and patterns
+4. **Customer Report** — Customer demographics and behavior
+5. **Cancellation Report** — Cancellation rates and reasons
+
+### Generating Reports
+
+1. Go to **Reports** (التقارير) from the sidebar
+2. Select report type
+3. Set date range
+4. Filter by hotel (optional)
+5. Click **Generate**
+
+### Exporting Data
+
+Reports can be exported as:
+- PDF — Printable document
+- CSV — Spreadsheet data
+
+---
+
+## 11. Front-End User Guide
+
+### Browsing the Website
+
+1. Open `https://laviparkhotels.com/`
+2. Use the **Language Switcher** (EN | AR) to toggle between languages
+3. Browse hotels and rooms from the homepage
+
+### Making a Booking
+
+1. Select **Check-in** and **Check-out** dates in the search bar
+2. Set **Number of Guests** (Adults/Children)
+3. Click **Search** to see available rooms
+4. Browse room options with prices and amenities
+5. Click **Book Now** (احجز الآن) on a room
+6. Review your booking cart
+7. Fill in guest details
+8. Select payment method
+9. Confirm booking
+
+### Guest Registration
+
+- Option 1: **Guest Checkout** — Book without creating an account
+- Option 2: **Create Account** — Register for faster future bookings
+
+### My Account
+
+Logged-in guests can:
+- View booking history
+- Download invoices
+- Update personal information
+- Cancel bookings
+- View saved addresses
+
+### Contact & Support
+
+- Phone: +966 12 538 4066
+- Email: lavipark7592@gmail.com
+- Contact form: Available on the website
+
+---
+
+## 12. Language & Localization
+
+The system is fully bilingual:
+
+### Arabic Interface
+- All public pages display in Arabic when AR is selected
+- Admin panel has Arabic interface with Google Translate backup
+- Right-to-left (RTL) layout for Arabic
+- Arabic numerals (٠١٢٣) in relevant contexts
+
+### English Interface
+- Complete English translation available
+- Left-to-right (LTR) layout
+- Full date formats in English
+
+### Switching Languages
+- **Website**: Click EN | AR toggle in the header
+- **Admin**: Click EN | AR toggle in the top toolbar
+- **Google Translate widget**: Available at the bottom-right of admin pages
+
+---
+
+## 13. Troubleshooting
+
+### Common Issues
+
+**Issue**: Booking page shows no available rooms
+- **Solution**: Ensure dates are selected and check-in is before check-out
+
+**Issue**: Admin dashboard shows incorrect data
+- **Solution**: Clear browser cache (Ctrl+F5) and verify the date range and hotel filter
+
+**Issue**: Language does not change when switching
+- **Solution**: Hard refresh the page (Ctrl+F5). If using Google Translate, ensure it's set to the target language.
+
+**Issue**: Email notifications not received
+- **Solution**: Check spam folder. Verify email configuration in admin settings.
+
+### Contact Support
+
+For technical support or system issues:
+- **Phone**: +966 12 538 4066
+- **Email**: lavipark7592@gmail.com
+
+---
+
+*Document Version 1.0 — June 2026*
+*Lavipark Hotel Management System*

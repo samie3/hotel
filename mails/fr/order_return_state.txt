@@ -1,0 +1,2 @@
+[/{shop_url}] Bonjour {firstname} {lastname}, Nous avons mis à jour l'avancement de votre retour n°{id_order_return}, le nouveau statut est : « {state_order_return} » {extra_mail_content_txt} Vous pouvez consulter votre commande et télécharger votre facture depuis la section « Historique des commandes » [/{history_url}] de votre compte client en cliquant sur « Mon compte » [/{mon_account_url}] sur notre site Web. {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com]
+

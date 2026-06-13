@@ -1,0 +1,102 @@
+/* Updated to use Cairo/Almarai fonts for Arabic */
+/* ================================================
+   Font Override for Arabic
+   ================================================ */
+html[lang="ar"] body {
+    font-family: "Cairo", "Almarai", sans-serif !important;
+}
+
+/* ================================================
+   masathotel.com - RTL Override CSS
+   Mobile-First Design
+   ================================================ */
+
+/* Reset & Base */
+* { box-sizing: border-box; }
+
+/* RTL-specific overrides for mobile-first */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Fix float directions for RTL */
+.rtl .pull-left { float: right !important; }
+.rtl .pull-right { float: left !important; }
+.rtl .text-left { text-align: right; }
+.rtl .text-right { text-align: left; }
+
+/* Navigation - ensure proper RTL flow */
+.rtl #header .nav-main { direction: rtl; }
+.rtl .header-top-menu { direction: rtl; }
+
+/* Search form RTL fixes */
+.rtl .searchbox-form { direction: rtl; }
+.rtl .searchbox-form .form-group { direction: rtl; }
+
+/* Room cards RTL */
+.rtl .room-card-content { text-align: right; }
+.rtl .room-price { direction: ltr; } /* Prices stay LTR */
+
+/* Amenities section */
+.rtl .amenities-list { direction: rtl; }
+
+/* Footer RTL */
+.rtl footer { direction: rtl; }
+.rtl .footer-links { direction: rtl; }
+
+/* Fix margins and paddings for RTL */
+.rtl .margin-right { margin-left: 15px; margin-right: 0; }
+.rtl .margin-left { margin-right: 15px; margin-left: 0; }
+.rtl .padding-right { padding-left: 15px; padding-right: 0; }
+.rtl .padding-left { padding-right: 15px; padding-left: 0; }
+
+/* Mobile-first: default to single column */
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+/* Bootstrap grid overrides for mobile-first */
+.row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+[class*="col-"] { padding: 0 15px; flex: 0 0 100%; max-width: 100%; }
+
+/* Desktop breakpoint */
+@media (min-width: 768px) {
+    [class*="col-sm-"] { flex: 0 0 50%; max-width: 50%; }
+}
+@media (min-width: 992px) {
+    [class*="col-md-"] { flex: 0 0 33.333%; max-width: 33.333%; }
+}
+
+/* Ensure all sections use proper box-sizing */
+section, article, aside, main, footer, header, nav {
+    box-sizing: border-box;
+}
+
+/* Hero section mobile-first */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 15px;
+}
+
+/* Typography scale - mobile */
+html { font-size: 16px; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+
+/* On mobile: stack everything vertically */
+@media (max-width: 767px) {
+    .header-top .row > div { margin-bottom: 10px; }
+    .room-cards-grid { flex-direction: column; }
+    .search-panel { flex-direction: column; }
+}
+
+/* Price display: always LTR (numbers) */
+.rtl .price-wrapper { direction: ltr; unicode-bidi: isolate; }
+.price-wrapper span[dir=ltr] { direction: ltr; }
+
+/* Cart/checkout: RTL */
+.rtl .cart-total { direction: rtl; }
+.rtl .payment-methods { direction: rtl; }

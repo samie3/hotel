@@ -1,0 +1,54 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule . - [E=REWRITEBASE:/]
+
+# HTTPS - FIXED: preserve the path
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L,QSA]
+
+# Fix CDN-cached redirect: the old masa-al-mashaaer-hotel URL should go back to normal
+RewriteRule ^(en|ar|fr)/7-masa-al-mashaaer-hotel(.*)$ https://laviparkhotels.com/$1/7-lavi-park-hotels$2 [R=301,L,QSA]
+
+# Real files
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Friendly URL for our-properties page
+RewriteRule ^([a-z]{2}/)?our-properties(/)?$ index.php?controller=our-properties [QSA,L]
+
+# API
+RewriteRule ^api/?(.*)$ %{ENV:REWRITEBASE}webservice/dispatcher.php?url=$1 [QSA,L]
+
+# Image rules
+# 1-digit
+RewriteRule ^([0-9])(\-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+\.jpg$ %{ENV:REWRITEBASE}img/p/$1/$1$2$3.jpg [L]
+# 2-digit
+RewriteRule ^([0-9])([0-9])(\-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+\.jpg$ %{ENV:REWRITEBASE}img/p/$1/$2/$1$2$3$4.jpg [L]
+# 3-digit
+RewriteRule ^([0-9])([0-9])([0-9])(\-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+\.jpg$ %{ENV:REWRITEBASE}img/p/$1/$2/$3/$1$2$3$4$5.jpg [L]
+# 4-digit
+RewriteRule ^([0-9])([0-9])([0-9])([0-9])(\-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+\.jpg$ %{ENV:REWRITEBASE}img/p/$1/$2/$3/$4/$1$2$3$4$5$6.jpg [L]
+RewriteRule ^c/([0-9]+)(\-[_a-zA-Z0-9-]*)\.jpg$ %{ENV:REWRITEBASE}img/c/$1$2.jpg [L]
+
+# Everything to index.php - QloApps handles routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.php [E=REWRITEBASE:/,L,QSA]
+</IfModule>
+
+# Cache & compression
+<IfModule mod_deflate.c>
+<IfModule mod_filter.c>
+AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+Options -Indexes

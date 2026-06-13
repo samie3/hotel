@@ -1,0 +1,2 @@
+Bonjour {premier nom} {lastname}, une nouvelle commande a été générée. Veuillez vous rendre sur {order_link} [/{order_link}] pour finaliser le paiement. {shop_name} [/{shop_url}], propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

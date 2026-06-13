@@ -1,0 +1,2 @@
+[/{shop_url}] Bonjour {premier nom} {lastname}, Voici le code de votre bon de réduction : {voucher_num} Copiez/collez simplement ce code lors du processus de paiement de votre prochaine commande. {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

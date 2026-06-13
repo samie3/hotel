@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام إدارة فنادق لافي بارك - دليل المستخدم الشامل</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; color: #2d3436; line-height: 1.8; direction: rtl; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 50px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 30px; }
+.header h1 { font-size: 2em; margin-bottom: 8px; color: #c9a96e; }
+.header p { font-size: 1.1em; opacity: 0.9; }
+.lang-toggle { text-align: left; margin-bottom: 20px; }
+.lang-toggle a { color: #c9a96e; text-decoration: none; font-weight: 600; padding: 5px 15px; border: 2px solid #c9a96e; border-radius: 5px; }
+.section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.section h2 { color: #1a1a2e; font-size: 1.4em; margin-bottom: 15px; border-bottom: 3px solid #c9a96e; padding-bottom: 10px; }
+.section h3 { color: #2d3436; font-size: 1.15em; margin: 20px 0 10px; }
+.section p, .section li { margin: 8px 0; }
+.section ul, .section ol { margin: 10px 0 10px 20px; }
+.section li { margin: 5px 0; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+th, td { padding: 10px; text-align: right; border: 1px solid #dfe6e9; }
+th { background: #1a1a2e; color: white; }
+tr:nth-child(even) { background: #f8f9fa; }
+img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #dfe6e9; margin: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.img-caption { text-align: center; font-size: 0.9em; color: #636e72; margin-top: -10px; margin-bottom: 15px; }
+.tip { background: #e8f5e9; border-right: 4px solid #4caf50; padding: 15px; border-radius: 8px; margin: 15px 0; }
+.warning { background: #fff3e0; border-right: 4px solid #ff9800; padding: 15px; border-radius: 8px; margin: 15px 0; }
+.step { background: #e3f2fd; border-right: 4px solid #2196f3; padding: 15px; border-radius: 8px; margin: 15px 0; }
+.footer { text-align: center; padding: 30px; color: #636e72; font-size: 0.9em; }
+.toc { background: white; border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.toc h2 { color: #1a1a2e; margin-bottom: 15px; border-bottom: 2px solid #c9a96e; padding-bottom: 10px; }
+.toc ul { list-style: none; columns: 2; column-gap: 30px; }
+.toc li { margin: 8px 0; }
+.toc a { color: #c9a96e; text-decoration: none; font-weight: 500; }
+.toc a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .toc ul { columns: 1; } .header h1 { font-size: 1.4em; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🏨 نظام إدارة فنادق لافي بارك</h1>
+  <p>دليل المستخدم الشامل — Lavipark Hotel Management System</p>
+  <div style="margin-top:15px;">
+    <a href="#s1" style="color:white;margin:0 10px;">نظرة عامة</a>
+    <a href="#s2" style="color:white;margin:0 10px;">تسجيل الدخول</a>
+    <a href="#s3" style="color:white;margin:0 10px;">لوحة التحكم</a>
+    <a href="#s4" style="color:white;margin:0 10px;">إدارة الفنادق</a>
+    <a href="#s5" style="color:white;margin:0 10px;">الغرف</a>
+    <a href="#s6" style="color:white;margin:0 10px;">الحجوزات</a>
+    <a href="#s11" style="color:white;margin:0 10px;">الموقع</a>
+  </div>
+</div>
+<div class="container">
+
+<!-- ENGLISH VERSION LINK -->
+<div class="lang-toggle">
+  <a href="#english-section">🌐 English Version ↓</a>
+</div>
+
+<!-- SECTION 1: SYSTEM OVERVIEW -->
+<div class="section" id="s1">
+  <h2>١. نظرة عامة عن النظام</h2>
+  <p>نظام إدارة فنادق لافي بارك هو منصة متكاملة لإدارة الفنادق والحجوزات عبر الإنترنت، مصممة خصيصاً للسوق السعودي.</p>
+  
+  <h3>الفنادق المدارة:</h3>
+  <ul>
+    <li><strong>فندق ماسة المشاعر</strong> — حي العزيزية، مكة المكرمة</li>
+    <li><strong>فندق لافي بارك</strong> — حي المسفلة، مكة المكرمة (قريب من الحرم)</li>
+  </ul>
+  
+  <h3>مميزات النظام:</h3>
+  <ul>
+    <li>واجهة ثنائية اللغة (عربي / إنجليزي)</li>
+    <li>حجز غرف عبر الإنترنت مع توفر فوري</li>
+    <li>لوحة تحكم شاملة لإدارة العمليات</li>
+    <li>دعم عملتين: ريال سعودي (﷼) ودولار أمريكي ($)</li>
+    <li>طرق دفع متعددة (حوالة بنكية، شيك)</li>
+    <li>تقارير وإحصائيات متكاملة</li>
+  </ul>
+  
+  <h3>روابط النظام:</h3>
+  <table>
+    <tr><th>الرابط</th><th>الوصف</th></tr>
+    <tr><td dir="ltr">https://laviparkhotels.com/ar/</td><td>الموقع بالعربية</td></tr>
+    <tr><td dir="ltr">https://laviparkhotels.com/en/</td><td>الموقع بالإنجليزية</td></tr>
+    <tr><td dir="ltr">https://laviparkhotels.com/admin707akbcps/</td><td>لوحة التحكم (Admin Panel)</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 2: ADMIN LOGIN -->
+<div class="section" id="s2">
+  <h2>٢. تسجيل الدخول إلى لوحة التحكم</h2>
+  
+  <div class="step">
+    <ol>
+      <li>افتح المتصفح واذهب إلى الرابط: <strong dir="ltr">https://laviparkhotels.com/admin707akbcps/</strong></li>
+      <li>أدخل <strong>البريد الإلكتروني</strong> الخاص بك</li>
+      <li>أدخل <strong>كلمة المرور</strong></li>
+      <li>انقر على <strong>تسجيل الدخول</strong></li>
+    </ol>
+  </div>
+  
+  <img src="/img/guide/admin-login.png" alt="شاشة تسجيل الدخول إلى لوحة التحكم">
+  <div class="img-caption">شاشة تسجيل الدخول — أدخل البريد الإلكتروني وكلمة المرور</div>
+  
+  <div class="tip">
+    <strong>💡 نصائح:</strong>
+    <ul>
+      <li>يمكنك التبديل بين العربية والإنجليزية باستخدام أزرار AR / EN في الشريط العلوي</li>
+      <li>إذا نسيت كلمة المرور، انقر على "نسيت كلمة المرور"</li>
+      <li>توجد أداة ترجمة Google في الزاوية السفلى اليمنى لترجمة أي نص تلقائياً</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 3: DASHBOARD -->
+<div class="section" id="s3">
+  <h2>٣. لوحة التحكم الرئيسية</h2>
+  <p>تظهر لوحة التحكم بعد تسجيل الدخول وتعرض ملخصاً كاملاً لجميع عمليات الفنادق.</p>
+  
+  <h3>مؤشرات الأداء الرئيسية (KPI)</h3>
+  <p>في أعلى الصفحة تظهر بطاقات الملخص:</p>
+  <ul>
+    <li><strong>الضيوف (بالغين/أطفال)</strong> — إجمالي عدد الضيوف</li>
+    <li><strong>الحجوزات الملغاة</strong> — عدد الحجوزات الملغاة</li>
+    <li><strong>رسائل الضيوف</strong> — رسائل جديدة من الضيوف</li>
+    <li><strong>الغرف المشغولة</strong> — الغرف المحجوزة حالياً</li>
+    <li><strong>حجوزات جديدة</strong> — الحجوزات الجديدة</li>
+    <li><strong>المغادرون</strong> — المغادرة المقررة</li>
+    <li><strong>الواصلون</strong> — الوصول المقرر</li>
+  </ul>
+  
+  <h3>تصفية البيانات</h3>
+  <ul>
+    <li><strong>اختيار الفندق</strong>: اختر "جميع الفنادق" أو فندق محدد</li>
+    <li><strong>نطاق التاريخ</strong>: استخدم التقويم لاختيار الفترة</li>
+    <li><strong>أزرار سريعة</strong>: يوم، شهر، سنة</li>
+  </ul>
+</div>
+
+<!-- SECTION 4: HOTELS -->
+<div class="section" id="s4">
+  <h2>٤. إدارة الفنادق</h2>
+  
+  <h3>إضافة فندق جديد</h3>
+  <div class="step">
+    <ol>
+      <li>من القائمة الجانبية، اذهب إلى <strong>إعدادات الفنادق → إضافة فندق</strong></li>
+      <li>املأ البيانات التالية:</li>
+    </ol>
+  </div>
+  
+  <table>
+    <tr><th>الحقل</th><th>الوصف</th></tr>
+    <tr><td>اسم الفندق (عربي)</td><td>اسم الفندق باللغة العربية</td></tr>
+    <tr><td>اسم الفندق (إنجليزي)</td><td>اسم الفندق باللغة الإنجليزية</td></tr>
+    <tr><td>البريد الإلكتروني</td><td>بريد التواصل الرئيسي</td></tr>
+    <tr><td>رقم الهاتف</td><td>رقم الاتصال</td></tr>
+    <tr><td>العنوان</td><td>عنوان الشارع</td></tr>
+    <tr><td>المدينة</td><td>موقع الفندق</td></tr>
+    <tr><td>وقت تسجيل الوصول</td><td>الوقت الافتراضي (مثال: 15:00)</td></tr>
+    <tr><td>وقت تسجيل المغادرة</td><td>الوقت الافتراضي (مثال: 12:00)</td></tr>
+    <tr><td>التقييم</td><td>تقييم الفندق من 1 إلى 5 نجوم</td></tr>
+  </table>
+  
+  <div class="tip"><strong>💡</strong> يمكن تفعيل أو تعطيل الفندق من نفس الصفحة. الفنادق المعطلة لا تظهر في موقع الحجز.</div>
+  
+  <h3>تعديل فندق</h3>
+  <ul>
+    <li>اذهب إلى <strong>الفنادق</strong> من القائمة الجانبية</li>
+    <li>انقر على أيقونة <strong>تعديل</strong> بجانب الفندق</li>
+    <li>قم بتحديث البيانات وانقر <strong>حفظ</strong></li>
+  </ul>
+</div>
+
+<!-- SECTION 5: ROOMS -->
+<div class="section" id="s5">
+  <h2>٥. إدارة الغرف</h2>
+  
+  <h3>أنواع الغرف المتاحة</h3>
+  
+  <h4>فندق لافي بارك:</h4>
+  <table>
+    <tr><th>نوع الغرفة</th><th>السعر</th><th>الحد الأقصى</th></tr>
+    <tr><td>غرفة كينغ</td><td>250 ريال/ليلة</td><td>2 ضيوف</td></tr>
+    <tr><td>غرفة ثلاثية</td><td>250 ريال/ليلة</td><td>3 ضيوف</td></tr>
+    <tr><td>غرفة رباعية</td><td>220 ريال/ليلة</td><td>4 ضيوف</td></tr>
+  </table>
+  
+  <h4>فندق ماسة المشاعر:</h4>
+  <table>
+    <tr><th>نوع الغرفة</th><th>السعر</th><th>الحد الأقصى</th></tr>
+    <tr><td>غرفة مزدوجة</td><td>180 ريال/ليلة</td><td>2 ضيوف</td></tr>
+    <tr><td>غرفة ثلاثية</td><td>280 ريال/ليلة</td><td>3 ضيوف</td></tr>
+    <tr><td>غرفة عائلية رباعية</td><td>300 ريال/ليلة</td><td>4 ضيوف</td></tr>
+    <tr><td>جناح تنفيذي</td><td>1,200 ريال/ليلة</td><td>2 ضيوف</td></tr>
+  </table>
+  
+  <h3>إضافة نوع غرفة جديد</h3>
+  <div class="step">
+    <ol>
+      <li>من القائمة الجانبية، اذهب إلى <strong>المنتجات → الغرف</strong></li>
+      <li>انقر <strong>إضافة غرفة جديدة</strong></li>
+      <li>اختر الفندق الذي تنتمي إليه الغرفة</li>
+      <li>أدخل اسم الغرفة بالعربية والإنجليزية</li>
+      <li>حدد السعر الليلي وعدد الضيوف المسموح</li>
+      <li>أضف صور الغرفة والخدمات المتاحة</li>
+      <li>انقر <strong>حفظ</strong></li>
+    </ol>
+  </div>
+
+  <h3>معاينة الغرف على الموقع</h3>
+  <img src="/img/guide/rooms-ar.png" alt="صفحة عرض الغرف بالعربية">
+  <div class="img-caption">صفحة عرض الغرف — تظهر بالعربية مع خيارات الحجز</div>
+  
+  <img src="/img/guide/rooms-en.png" alt="صفحة عرض الغرف بالإنجليزية">
+  <div class="img-caption">نفس الصفحة بالإنجليزية — زر "Book Now" و "View More"</div>
+</div>
+
+<!-- SECTION 6: BOOKINGS -->
+<div class="section" id="s6">
+  <h2>٦. إدارة الحجوزات</h2>
+  
+  <h3>عرض الحجوزات</h3>
+  <ul>
+    <li>اذهب إلى <strong>الطلبات</strong> من القائمة الجانبية</li>
+    <li>تظهر جميع الحجوزات مع: رقم الحجز، اسم العميل، الفندق، نوع الغرفة، التواريخ، السعر، حالة الدفع</li>
+  </ul>
+  
+  <h3>حالات الحجز</h3>
+  <ul>
+    <li><strong>معلق</strong> — في انتظار تأكيد الدفع</li>
+    <li><strong>مؤكد</strong> — تم استلام الدفع وتأكيد الحجز</li>
+    <li><strong>تم تسجيل الوصول</strong> — وصل الضيف</li>
+    <li><strong>تم تسجيل المغادرة</strong> — غادر الضيف</li>
+    <li><strong>ملغي</strong> — تم إلغاء الحجز</li>
+  </ul>
+  
+  <h3>تعديل حجز</h3>
+  <div class="step">
+    <ol>
+      <li>افتح الحجز من قائمة الطلبات</li>
+      <li>قم بتعديل التواريخ، نوع الغرفة، أو بيانات الضيف</li>
+      <li>انقر <strong>تحديث</strong> — سيتم إعادة حساب السعر تلقائياً</li>
+    </ol>
+  </div>
+  
+  <h3>إلغاء حجز</h3>
+  <div class="step">
+    <ol>
+      <li>افتح الحجز</li>
+      <li>انقر <strong>إلغاء</strong></li>
+      <li>اختر سبب الإلغاء</li>
+      <li>قم بمعالجة استرداد المبلغ إذا لزم الأمر</li>
+    </ol>
+  </div>
+  
+  <h3>حجز يدوي (للاستقبال)</h3>
+  <div class="step">
+    <ol>
+      <li>اذهب إلى <strong>الطلبات → إنشاء طلب جديد</strong></li>
+      <li>أدخل بيانات الضيف</li>
+      <li>اختر الفندق، نوع الغرفة، والتواريخ</li>
+      <li>حدد طريقة الدفع</li>
+      <li>قم بتأكيد الحجز</li>
+    </ol>
+  </div>
+</div>
+
+<!-- SECTION 7: CUSTOMERS -->
+<div class="section" id="s7">
+  <h2>٧. إدارة العملاء</h2>
+  
+  <h3>عرض قائمة العملاء</h3>
+  <ul>
+    <li>اذهب إلى <strong>العملاء</strong> من القائمة الجانبية</li>
+    <li>تظهر قائمة بجميع العملاء المسجلين مع: الاسم، البريد الإلكتروني، رقم الهاتف، عدد الحجوزات</li>
+  </ul>
+  
+  <h3>إضافة عميل جديد</h3>
+  <div class="step">
+    <ol>
+      <li>انقر <strong>إضافة عميل جديد</strong></li>
+      <li>أدخل البيانات المطلوبة: الاسم الأول، اسم العائلة، البريد الإلكتروني، رقم الهاتف، كلمة المرور</li>
+      <li>انقر <strong>حفظ</strong></li>
+    </ol>
+  </div>
+  
+  <h3>تفاصيل العميل</h3>
+  <p>عند النقر على اسم العميل، يمكنك عرض:</p>
+  <ul>
+    <li>المعلومات الشخصية</li>
+    <li>سجل الحجوزات السابقة</li>
+    <li>سجل الطلبات</li>
+    <li>الرسائل والمراسلات</li>
+  </ul>
+</div>
+
+<!-- SECTION 8: PAYMENTS -->
+<div class="section" id="s8">
+  <h2>٨. الطلبات والمدفوعات</h2>
+  
+  <h3>طرق الدفع المدعومة</h3>
+  <ul>
+    <li><strong>حوالة بنكية</strong> — يقوم الضيف بتحويل المبلغ إلى حساب الفندق</li>
+    <li><strong>شيك</strong> — الدفع عن طريق الشيك</li>
+    <li><strong>الدفع اليدوي</strong> — الدفع نقداً في الاستقبال</li>
+  </ul>
+  
+  <h3>حالات الطلب</h3>
+  <ul>
+    <li><strong>في انتظار الدفع</strong> — لم يتم استلام الدفع بعد</li>
+    <li><strong>تم قبول الدفع</strong> — تم تأكيد الدفع</li>
+    <li><strong>قيد المعالجة</strong> — الطلب قيد التجهيز</li>
+    <li><strong>مكتمل</strong> — تمت الإقامة</li>
+    <li><strong>ملغي</strong> — تم إلغاء الطلب</li>
+    <li><strong>مسترجع</strong> — تم استرداد المبلغ</li>
+  </ul>
+  
+  <h3>إنشاء فاتورة</h3>
+  <div class="step">
+    <ol>
+      <li>اذهب إلى <strong>الطلبات → اختر طلباً</strong></li>
+      <li>انقر على <strong>الفاتورة</strong></li>
+      <li>سيتم إنشاء ملف PDF للفاتورة</li>
+      <li>يمكنك تحميلها أو إرسالها للعميل</li>
+    </ol>
+  </div>
+  
+  <h3>استرداد المبلغ</h3>
+  <div class="step">
+    <ol>
+      <li>افتح الطلب</li>
+      <li>انقر <strong>استرداد</strong></li>
+      <li>أدخل المبلغ المراد استرداده</li>
+      <li>قم بمعالجة الاسترداد</li>
+    </ol>
+  </div>
+</div>
+
+<!-- SECTION 9: CONTENT -->
+<div class="section" id="s9">
+  <h2>٩. إدارة المحتوى</h2>
+  
+  <h3>صفحات المحتوى</h3>
+  <p>النظام يتضمن صفحات محتوى قابلة للتعديل:</p>
+  <ul>
+    <li><strong>من نحن</strong> — معلومات عن مجموعة فنادق لافي بارك</li>
+    <li><strong>اتصل بنا</strong> — نموذج الاتصال والموقع</li>
+    <li><strong>الشروط والأحكام</strong> — سياسات الحجز</li>
+    <li><strong>سياسة الخصوصية</strong> — معلومات خصوصية البيانات</li>
+  </ul>
+  
+  <h3>تعديل صفحة محتوى</h3>
+  <div class="step">
+    <ol>
+      <li>من القائمة الجانبية، اذهب إلى <strong>المحتوى (CMS)</strong></li>
+      <li>اختر الصفحة المراد تعديلها</li>
+      <li>قم بتحديث المحتوى بالعربية والإنجليزية</li>
+      <li>انقر <strong>حفظ</strong></li>
+    </ol>
+  </div>
+  
+  <h3>نموذج الاتصال</h3>
+  <img src="/img/guide/contact-ar.png" alt="صفحة الاتصال بالعربية">
+  <div class="img-caption">صفحة اتصل بنا — يمكن للزوار إرسال استفساراتهم</div>
+  
+  <p>رسائل الاتصال تصل إلى البريد الإلكتروني المخصص، ويمكن الرد عليها من قسم <strong>خدمة العملاء</strong> في لوحة التحكم.</p>
+</div>
+
+<!-- SECTION 10: REPORTS -->
+<div class="section" id="s10">
+  <h2>١٠. التقارير والإحصائيات</h2>
+  
+  <h3>التقارير المتاحة</h3>
+  <ul>
+    <li><strong>تقرير المبيعات</strong> — توزيع الإيرادات حسب الفندق ونوع الغرفة</li>
+    <li><strong>تقرير الإشغال</strong> — نسب إشغال الغرف</li>
+    <li><strong>تقرير الحجوزات</strong> — اتجاهات وأنماط الحجز</li>
+    <li><strong>تقرير العملاء</strong> — تحليل العملاء والسلوك</li>
+    <li><strong>تقرير الإلغاءات</strong> — معدلات وأسباب الإلغاء</li>
+  </ul>
+  
+  <h3>تصدير البيانات</h3>
+  <ul>
+    <li><strong>PDF</strong> — مستند قابل للطباعة</li>
+    <li><strong>CSV</strong> — بيانات جدولية للتحليل</li>
+  </ul>
+</div>
+
+<!-- SECTION 11: FRONT-END -->
+<div class="section" id="s11">
+  <h2>١١. دليل استخدام الموقع للزوار</h2>
+  
+  <h3>تصفح الموقع</h3>
+  <ol>
+    <li>افتح <strong dir="ltr">https://laviparkhotels.com/</strong></li>
+    <li>استخدم أزرار <strong>EN | AR</strong> للتبديل بين اللغات</li>
+    <li>تصفح الفنادق والغرف من الصفحة الرئيسية</li>
+  </ol>
+  
+  <img src="/img/guide/homepage-ar.png" alt="الصفحة الرئيسية بالعربية">
+  <div class="img-caption">الصفحة الرئيسية — جميع المحتويات بالعربية مع محرك البحث للحجوزات</div>
+  
+  <img src="/img/guide/homepage-en.png" alt="الصفحة الرئيسية بالإنجليزية">
+  <div class="img-caption">نفس الصفحة بالإنجليزية — تبديل اللغة من أعلى الصفحة</div>
+  
+  <h3>عمل حجز جديد</h3>
+  <div class="step">
+    <ol>
+      <li>اختر تاريخ <strong>تسجيل الوصول</strong> و <strong>تسجيل المغادرة</strong></li>
+      <li>حدد عدد <strong>الضيوف</strong> (بالغين/أطفال)</li>
+      <li>انقر <strong>بحث</strong> لعرض الغرف المتاحة</li>
+      <li>تصفح خيارات الغرف مع الأسعار والخدمات</li>
+      <li>انقر <strong>احجز الآن</strong> على الغرفة المطلوبة</li>
+      <li>راجع سلة الحجز الخاصة بك</li>
+      <li>أدخل بيانات الضيف</li>
+      <li>اختر طريقة الدفع</li>
+      <li>قم بتأكيد الحجز</li>
+    </ol>
+  </div>
+  
+  <h3>تسجيل حساب</h3>
+  <ul>
+    <li><strong>الدفع كضيف</strong> — حجز بدون إنشاء حساب</li>
+    <li><strong>إنشاء حساب</strong> — تسجيل للاستفادة من الحجوزات السريعة في المستقبل</li>
+  </ul>
+  
+  <h3>حسابي</h3>
+  <p>يمكن للعملاء المسجلين:</p>
+  <ul>
+    <li>عرض سجل الحجوزات</li>
+    <li>تحميل الفواتير</li>
+    <li>تحديث المعلومات الشخصية</li>
+    <li>إلغاء الحجوزات</li>
+  </ul>
+  
+  <h3>معلومات الاتصال</h3>
+  <ul>
+    <li>الهاتف: 4066 538 12 966+</li>
+    <li>البريد: lavipark7592@gmail.com</li>
+    <li>نموذج الاتصال: متاح على الموقع</li>
+  </ul>
+</div>
+
+<!-- SECTION 12: LANGUAGE -->
+<div class="section" id="s12">
+  <h2>١٢. اللغات والترجمة</h2>
+  
+  <p>النظام ثنائي اللغة بالكامل:</p>
+  
+  <h3>الواجهة العربية</h3>
+  <ul>
+    <li>جميع صفحات الموقع تعرض بالعربية عند اختيار AR</li>
+    <li>لوحة التحكم تدعم العربية مع أداة ترجمة Google كخط احتياطي</li>
+    <li>اتجاه الكتابة من اليمين إلى اليسار (RTL)</li>
+  </ul>
+  
+  <h3>الواجهة الإنجليزية</h3>
+  <ul>
+    <li>ترجمة إنجليزية كاملة للموقع</li>
+    <li>اتجاه الكتابة من اليسار إلى اليمين (LTR)</li>
+  </ul>
+  
+  <h3>التبديل بين اللغات</h3>
+  <ul>
+    <li><strong>الموقع</strong>: انقر على EN | AR في أعلى الصفحة</li>
+    <li><strong>لوحة التحكم</strong>: انقر على EN | AR في الشريط العلوي</li>
+    <li><strong>أداة Google Translate</strong>: متاحة في أسفل يمين صفحات الإدارة</li>
+  </ul>
+</div>
+
+<!-- SECTION 13: TROUBLESHOOTING -->
+<div class="section" id="s13">
+  <h2>١٣. حل المشكلات الشائعة</h2>
+  
+  <div class="warning">
+    <strong>المشكلة:</strong> صفحة الحجز لا تظهر غرفاً متاحة
+    <br><strong>الحل:</strong> تأكد من اختيار تواريخ صحيحة وأن تاريخ الوصول قبل تاريخ المغادرة
+  </div>
+  
+  <div class="warning">
+    <strong>المشكلة:</strong> لوحة التحكم تظهر بيانات غير صحيحة
+    <br><strong>الحل:</strong> قم بتحديث الصفحة (Ctrl+F5) وتحقق من نطاق التاريخ واختيار الفندق
+  </div>
+  
+  <div class="warning">
+    <strong>المشكلة:</strong> اللغة لا تتغير عند التبديل
+    <br><strong>الحل:</strong> قم بتحديث الصفحة بقوة (Ctrl+F5). إذا كنت تستخدم Google Translate، تأكد من اختيار اللغة المستهدفة
+  </div>
+  
+  <div class="warning">
+    <strong>المشكلة:</strong> إشعارات البريد الإلكتروني لا تصل
+    <br><strong>الحل:</strong> تحقق من مجلد البريد المزعج (Spam). تأكد من إعدادات البريد في لوحة التحكم
+  </div>
+</div>
+
+<!-- ==================== ENGLISH VERSION ==================== -->
+
+<div id="english-section" style="margin-top:60px;padding-top:40px;border-top:3px solid #c9a96e;">
+<div class="header" style="background:linear-gradient(135deg,#2d3436,#636e72);">
+  <h1>🏨 Lavipark Hotel Management System</h1>
+  <p>Complete User Guide</p>
+</div>
+
+<div class="section">
+  <h2>1. System Overview</h2>
+  <p>Lavipark Hotel Management System is a complete hotel booking and management platform built for the Saudi Arabian hospitality market, supporting two hotels in Makkah.</p>
+  
+  <h3>Managed Hotels:</h3>
+  <ul>
+    <li><strong>Masa Al Mashaaer Hotel</strong> — Al Aziziyah, Makkah</li>
+    <li><strong>Lavi Park Hotel</strong> — Al Misfalah, Makkah</li>
+  </ul>
+  
+  <h3>System URLs:</h3>
+  <table>
+    <tr><th>URL</th><th>Description</th></tr>
+    <tr><td>https://laviparkhotels.com/ar/</td><td>Arabic website</td></tr>
+    <tr><td>https://laviparkhotels.com/en/</td><td>English website</td></tr>
+    <tr><td>https://laviparkhotels.com/admin707akbcps/</td><td>Admin Panel</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>2. Admin Login</h2>
+  <div class="step">
+    <ol>
+      <li>Open browser and go to <strong>https://laviparkhotels.com/admin707akbcps/</strong></li>
+      <li>Enter your <strong>Email address</strong></li>
+      <li>Enter your <strong>Password</strong></li>
+      <li>Click <strong>Login</strong></li>
+    </ol>
+  </div>
+  
+  <img src="/img/guide/admin-login.png" alt="Admin Login Screen">
+  <div class="img-caption">Admin Login screen — enter your credentials</div>
+  
+  <div class="tip"><strong>💡</strong> Toggle AR/EN in the top bar to switch languages. Google Translate widget available at bottom-right.</div>
+</div>
+
+<div class="section">
+  <h2>3. Dashboard</h2>
+  <p>The dashboard shows a complete overview of hotel operations with KPI badges, operations tabs, occupancy widget, and revenue summary.</p>
+  
+  <h3>KPI Badges</h3>
+  <ul>
+    <li>Guests (Adults/Children)</li>
+    <li>Cancelled Bookings</li>
+    <li>Guest Messages</li>
+    <li>Occupied Rooms</li>
+    <li>New Bookings</li>
+    <li>Departures</li>
+    <li>Arrivals</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>4. How Guests Book — Online Flow</h2>
+  
+  <h3>Step-by-Step Booking Process:</h3>
+  <div class="step">
+    <ol>
+      <li>Visit <strong>https://laviparkhotels.com/</strong></li>
+      <li>Select <strong>Check-in</strong> and <strong>Check-out</strong> dates</li>
+      <li>Set number of <strong>Guests</strong> (Adults/Children)</li>
+      <li>Click <strong>Search</strong> to view available rooms</li>
+    </ol>
+  </div>
+  
+  <img src="/img/guide/rooms-ar.png" alt="Room listing in Arabic">
+  <div class="img-caption">Room listing with prices, amenities, and Book Now button</div>
+  
+  <div class="step">
+    <ol start="5">
+      <li>Browse room options with prices and amenities</li>
+      <li>Click <strong>Book Now</strong> on your chosen room</li>
+      <li>Review the booking cart summary</li>
+      <li>Enter guest details (name, email, phone)</li>
+      <li>Select payment method (Bank Wire or Check)</li>
+      <li>Confirm the booking</li>
+    </ol>
+  </div>
+  
+  <p>After booking, the guest receives a confirmation with their booking reference number.</p>
+  
+  <h3>Managing a Booking</h3>
+  <div class="step">
+    <ol>
+      <li>Go to <strong>Orders</strong> from the sidebar menu</li>
+      <li>Find the booking by reference number or customer name</li>
+      <li>Click to view details</li>
+    </ol>
+  </div>
+  
+  <p>From the order detail page, you can:</p>
+  <ul>
+    <li><strong>Edit</strong> — Modify dates, room type, or guest details</li>
+    <li><strong>Cancel</strong> — Cancel the booking and process refund if needed</li>
+    <li><strong>Generate Invoice</strong> — Create a PDF invoice for the customer</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>5. Managing Hotels & Rooms</h2>
+  
+  <h3>Room Types:</h3>
+  <p><strong>Lavi Park Hotel:</strong> King Room (250 SAR), Triple Room (250 SAR), Quad Room (220 SAR)</p>
+  <p><strong>Masa Al Mashaaer:</strong> Double Room (180 SAR), Triple Room (280 SAR), Family Quad Room (300 SAR), Executive Suite (1,200 SAR)</p>
+  
+  <h3>Editing Website Content</h3>
+  <div class="step">
+    <ol>
+      <li>From the admin sidebar, go to <strong>CMS (المحتوى)</strong></li>
+      <li>Select the page you want to edit (About Us, Contact, etc.)</li>
+      <li>Update content in both Arabic and English</li>
+      <li>Click <strong>Save</strong></li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- END ENGLISH VERSION -->
+
+<div class="footer">
+  Lavipark Hotel Management System — Document Version 1.0 (June 2026)<br>
+  © Lavipark Hotel - All rights reserved
+</div>
+
+</div>
+</body>
+</html>

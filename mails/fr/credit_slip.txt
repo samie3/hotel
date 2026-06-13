@@ -1,0 +1,2 @@
+Bonjour {premier nom} {lastname}, nous avons généré un avoir à votre nom pour la commande portant la référence {order_name}. Vous pouvez consulter cet avoir et télécharger votre facture à partir de la section « Mes avoirs » [/{credit_slip_url}] de votre compte en cliquant sur « Mon compte » [/{my_account_url}] sur notre site web. {shop_name} [/{shop_url}] propulsé par Lavipark Hotel(tm) [https://laviparkhotels.com] 
+

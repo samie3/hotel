@@ -9320,3 +9320,17 @@ html[lang="ar"] .our_price_display {
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+/* ============================================================
+   Client request: reduce excessive vertical whitespace site-wide.
+   Conservative starting values — tune live as needed.
+   ============================================================ */
+.home_block_container { padding-top: 22px; padding-bottom: 12px; }
+.home_block_heading { font-size: 32px; line-height: 32px; margin-bottom: 6px; }
+.home_block_desc_wrapper { margin-bottom: 8px; }
+#footer section { margin-bottom: 12px; }
+.info_margin_div { margin-top: 12px; margin-bottom: 12px; }
+.page-product-box { margin-bottom: 12px; }
+#center_column .page-content,
+#center_column .block-content { padding-top: 10px; padding-bottom: 10px; }
+.pb-left-column, .pb-right-column { padding-top: 8px; }

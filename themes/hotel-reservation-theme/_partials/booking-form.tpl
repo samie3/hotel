@@ -220,7 +220,7 @@
                         {block name='booking_form_associated_hotels'}
                             {if isset($associated_hotels) && $associated_hotels}
                                 <div class="form-group">
-                                    <label class="control-label">{l s='Select Hotel'}</label>
+                                    <label class="control-label">{if isset($lang_iso) && $lang_iso == 'ar'}اختر الفندق{else}{l s='Select Hotel'}{/if}</label>
                                     <select class="chosen input-hotel" name="service_id_hotel" id="service_id_hotel">
                                         {foreach $associated_hotels as $hotel}
                                             <option value="{$hotel.id_hotel}" {if isset($service_id_hotel) && $service_id_hotel == $hotel['id_hotel']}selected{elseif $hotel@first}selected{/if}>{$hotel.name}</option>

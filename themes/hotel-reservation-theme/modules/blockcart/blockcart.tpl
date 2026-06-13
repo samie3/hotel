@@ -380,7 +380,7 @@
 										</span>
 										<a class="btn btn-default button button-medium"	href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
 											<span>
-												{l s='Proceed to checkout' mod='blockcart'}<i class="icon-chevron-right right"></i>
+												{if isset($lang_iso) && $lang_iso == 'ar'}متابعة الدفع{else}{l s='Proceed to checkout' mod='blockcart'}{/if}<i class="icon-chevron-right right"></i>
 											</span>
 										</a>
 									</div>

@@ -69,8 +69,8 @@
                 {/if}
                 {if isset($tiktok_url) && $tiktok_url != ''}
                     <li class="tiktok">
-                        <a class="_blank" href="{$tiktok_url|escape:html:'UTF-8'}">
-                            <span>{l s='TikTok' mod='blocksocial'}</span>
+                        <a class="_blank" href="{$tiktok_url|escape:html:'UTF-8'}" target="_blank">
+                            <span>{if isset($lang_iso) && $lang_iso == 'ar'}تيك توك{else}TikTok{/if}</span>
                         </a>
                     </li>
                 {/if}

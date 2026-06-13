@@ -1395,3 +1395,15 @@ $_LANG['service-products-list-row_e0626222614bdee31951d84c64e5e9ff'] = 'اختي
 $_LANG['shopping-cart-detail_ec211f7c20af43e742bf2570c3cb84f9'] = 'إضافة';
 $_LANG['shopping-cart-detail_f2a6c498fb90ee345d997f888fce3b18'] = 'حذف';
 $_LANG['shopping-cart-detail_f262fae0a2f17e8c1eb4e9eddb0160e4'] = 'متابعة';
+
+
+// --- Arabic UI coverage batch 2 ---
+$_LANG['identity_2433db5a329ea473271a3cd8c013362e'] = 'المعلومات الشخصية';
+$_LANG['my-account_2433db5a329ea473271a3cd8c013362e'] = 'المعلومات الشخصية';
+$_LANG['order-confirmation_f3547ae5e06426d87312eff7dda775aa'] = 'السعر الإجمالي';
+$_LANG['order-detail_a149e85a44aeec9140e92733d9ed694e'] = 'ملغى';
+$_LANG['order-detail_cc61945cbbf46721a053467c395c666f'] = 'تم الاسترداد';
+$_LANG['order-follow_6e9783376d951cfd780e9fdb67a0f02c'] = 'عرض التفاصيل';
+$_LANG['order-return_6dcb510ee5a80411dbd180d92008b20f'] = 'نوع الغرفة';
+$_LANG['order-standalone-service-detail_a149e85a44aeec9140e92733d9ed694e'] = 'ملغى';
+$_LANG['order-standalone-service-detail_cc61945cbbf46721a053467c395c666f'] = 'تم الاسترداد';

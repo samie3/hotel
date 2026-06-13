@@ -279,38 +279,12 @@
 														{/if}
 													{/block}
 													{block name='product_info_tab_room_features'}
-														{if isset($features) && $features}
-															<div class="info_margin_div">
-																<div class="room_info_heading">
-																	<span>{if $lang_iso == 'ar'}مميزات الغرفة{else}{l s='Room Features'}{/if}</span>
-																</div>
-																<div class="room_info_content row">
-																	{foreach from=$features key=ftr_k item=ftr_v}
-																		<div class="col-md-3 col-sm-4 col-xs-6">
-																			<div class="rm_ftr_wrapper" title="{$ftr_v.name|escape:'html':'UTF-8'}" alt="{$ftr_v.name|escape:'html':'UTF-8'}" >
-																				<img src="{$link->getMediaLink("`$ftr_img_src|escape:'html':'UTF-8'`{$ftr_v.value|escape:'html':'UTF-8'}")}">  {$ftr_v.name|escape:'html':'UTF-8'}
-																			</div>
-																		</div>
-																	{/foreach}
-																</div>
-															</div>
-														{/if}
+														{* Room Features / amenities block hidden per client request (AR & EN) *}
 													{/block}
 													{* Block for booking products *}
 													{if isset($id_hotel) && $id_hotel}
 														{block name='product_info_tab_hotel_features'}
-															{if isset($hotel_features) && $hotel_features}
-																<div class="info_margin_div">
-																	<div class="room_info_heading">
-																		<span>{if $lang_iso == 'ar'}مميزات الفندق{else}{l s='Hotel Features'}{/if}</span>
-																	</div>
-																	<div class="room_info_content row">
-																		{foreach from=$hotel_features key=ftr_k item=ftr_v}
-																			<div class="col-sm-4 col-xs-12"><i class="circle-small">o</i> {$ftr_v|escape:'html':'UTF-8'}</div>
-																		{/foreach}
-																	</div>
-																</div>
-															{/if}
+															{* Hotel Features / amenities block (WiFi, newspaper, refrigerator, power backup, etc.) hidden per client request (AR & EN) *}
 														{/block}
 														{block name='product_info_tab_hotel_description'}
 															{if isset($hotel_description) && $hotel_description}
@@ -455,7 +429,7 @@
 													</div>
 												{/if}
 												<div class="col-xs-11 demand_adv_option_block">
-													<p>{$demand['name']|escape:'html':'UTF-8'} {if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}<span class="pull-right"><span class="extra_demand_option_price">{convertPrice price = $demand['price']}</span>{if $demand['price_calc_method'] == $WK_PRICE_CALC_METHOD_EACH_DAY}{l s='/Night'}{/if}</span>{/if}</p>
+													<p>{$demand['name']|escape:'html':'UTF-8'} {if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}<span class="pull-right"><span class="extra_demand_option_price">{convertPrice price = $demand['price']}</span>{if $demand['price_calc_method'] == $WK_PRICE_CALC_METHOD_EACH_DAY}{if $lang_iso == 'ar'}/ليلة{else}{l s='/Night'}{/if}{/if}</span>{/if}</p>
 													{if isset($demand['adv_option']) && $demand['adv_option']}
 														<select class="id_option">
 															{foreach $demand['adv_option'] as $idOption => $option}

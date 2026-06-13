@@ -226,7 +226,7 @@ class AdminLocalizationControllerCore extends AdminController
         $localizations_pack = [];
         $this->tpl_option_vars['options_content'] = $this->renderOptions();
 
-        $xml_localization = Tools::simplexml_load_file(_QLO_API_URL_.'/xml/localization.xml');
+        $xml_localization = false; // Disable remote call to prevent timeout
         if (!$xml_localization) {
             $localization_file = _PS_ROOT_DIR_.'/localization/localization.xml';
             if (file_exists($localization_file)) {
@@ -337,7 +337,7 @@ class AdminLocalizationControllerCore extends AdminController
                 array(
                     'type'     => 'radio',
                     'label'  => $this->l('Download pack data'),
-                    'desc'     => $this->l('If set to yes then the localization pack will be downloaded from prestashop.com. Otherwise the local xml file found in the localization folder of your QloApps installation will be used.'),
+                    'desc'     => $this->l('If set to yes then the localization pack will be downloaded from prestashop.com. Otherwise the local xml file found in the localization folder of your Yajes installation will be used.'),
                     'name'     => 'download_updated_pack',
                     'is_bool'=> true,
                     'values' => array(

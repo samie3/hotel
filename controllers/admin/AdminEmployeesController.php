@@ -271,24 +271,8 @@ class AdminEmployeesControllerCore extends AdminController
 
         $this->fields_form['input'] = array_merge($this->fields_form['input'], array(
             array(
-                'type' => 'switch',
-                'label' => $this->l('Subscribe to QloApps newsletter'),
+                'type' => 'hidden',
                 'name' => 'optin',
-                'required' => false,
-                'is_bool' => true,
-                'values' => array(
-                    array(
-                        'id' => 'optin_on',
-                        'value' => 1,
-                        'label' => $this->l('Yes')
-                    ),
-                    array(
-                        'id' => 'optin_off',
-                        'value' => 0,
-                        'label' => $this->l('No')
-                    )
-                ),
-                'hint' => $this->l('QloApps can provide you with guidance on a regular basis by sending you tips on how to optimize the management of your store which will help you grow your business. If you do not wish to receive these tips, you can disable this option.')
             ),
             array(
                 'type' => 'default_tab',

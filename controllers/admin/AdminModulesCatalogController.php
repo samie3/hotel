@@ -236,12 +236,7 @@ class AdminModulesCatalogControllerCore extends AdminController
     public function initToolbar()
     {
         parent::initToolbar();
-        $this->page_header_toolbar_btn['addons'] = array(
-            'href' => 'https://qloapps.com/addons/',
-            'desc' => $this->l('Explore all Addons'),
-            'imgclass' => 'puzzle-piece',
-            'target' => true
-        );
+        // explore addons button removed
     }
 
     public function sortList(&$list, $type)

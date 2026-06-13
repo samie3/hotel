@@ -1984,7 +1984,7 @@ class AdminThemesControllerCore extends AdminController
             }
         }
         if ($xml_version_too_old && !$this->_checkConfigForFeatures(array_keys(AdminThemes::$check_features))) {
-            $this->errors[] = Tools::displayError('The config.xml file has not been created for this version of QloApps.');
+            $this->errors[] = Tools::displayError('The config.xml file has not been created for this version of Yajes.');
             $return = false;
         }
 
@@ -2058,7 +2058,7 @@ class AdminThemesControllerCore extends AdminController
     {
         $protocols = array('https://', 'http://');
         foreach ($protocols as $protocol) {
-            if($xml = @simplexml_load_string(Tools::file_get_contents($protocol._QLO_API_DOMAIN_.'/xml/'.str_replace('.', '', _QLOAPPS_VERSION_).'.xml'))) {
+            if(false) {
                 break;
             }
         }

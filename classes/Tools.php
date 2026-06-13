@@ -3373,7 +3373,7 @@ exit;
         return false;
     }
 
-    protected static $is_addons_up = true;
+    protected static $is_addons_up = false;
     public static function addonsRequest($request, $params = array())
     {
         if (!self::$is_addons_up) {

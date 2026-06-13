@@ -50,10 +50,10 @@
                         <input type="hidden" id="min_booking_offset" name="min_booking_offset" value="{if isset($min_booking_offset)}{$min_booking_offset|escape:'htmlall':'UTF-8'}{/if}">
 
                         <div class="hotel-selector-wrap {if isset($language_is_rtl) && $language_is_rtl}rtl{/if}">
-                            <select name="id_hotel" class="chosen header-rmsearch-input" data-placeholder="{l s='Select Hotel' mod='wkroomsearchblock'}" id="id_hotel_button">
+                            <select name="id_hotel" class="chosen header-rmsearch-input" data-placeholder="{if isset($lang_iso) && $lang_iso == 'ar'}اختر الفندق{else}{l s='Select Hotel' mod='wkroomsearchblock'}{/if}" id="id_hotel_button">
                                 <option value=""></option>
                                 {foreach $hotels_info as $name_val}
-                                    <option class="search_result_li" value="{$name_val['id']|escape:'htmlall':'UTF-8'}" data-id-hotel="{$name_val['id']|escape:'htmlall':'UTF-8'}" data-hotel-cat-id="{$name_val['id_category']|escape:'htmlall':'UTF-8'}" data-max_order_date="{$name_val['max_order_date']}" data-min_booking_offset="{$name_val['min_booking_offset']|escape:'htmlall':'UTF-8'}" {if isset($search_data) && $name_val['id'] == $search_data['htl_dtl']['id']}selected{/if}>{$name_val['hotel_name']|escape:'htmlall':'UTF-8'}</option>
+                                    <option class="search_result_li" value="{$name_val['id']|escape:'htmlall':'UTF-8'}" data-id-hotel="{$name_val['id']|escape:'htmlall':'UTF-8'}" data-hotel-cat-id="{$name_val['id_category']|escape:'htmlall':'UTF-8'}" data-max_order_date="{$name_val['max_order_date']}" data-min_booking_offset="{$name_val['min_booking_offset']|escape:'htmlall':'UTF-8'}" {if isset($search_data) && $name_val['id'] == $search_data['htl_dtl']['id']}selected{elseif !isset($search_data) && $name_val@first}selected{/if}>{$name_val['hotel_name']|escape:'htmlall':'UTF-8'}</option>
                                 {/foreach}
                             </select>
                         </div>

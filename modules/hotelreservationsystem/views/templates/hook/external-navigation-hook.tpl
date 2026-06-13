@@ -34,7 +34,7 @@
             <li>
                 <a href="tel:{$phone}">
                     <i class="icon-phone"></i>
-                    {$phone}
+                    <bdi dir="ltr">{$phone}</bdi>
                 </a>
             </li>
         {/if}

@@ -29,6 +29,6 @@
 {if $phone != ''}
     <div class="contact-item">
         <i class="icon-phone"></i>
-        <a href="tel:{$phone}">{$phone}</a>
+        <a href="tel:{$phone}"><bdi dir="ltr">{$phone}</bdi></a>
     </div>
 {/if}

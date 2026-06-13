@@ -42,6 +42,8 @@ $(document).ready(function()
 		var menu_cont = $("#menu_cont");
 		if (menu_cont.hasClass("menu_cont_right"))
 			menu_cont.removeClass("menu_cont_right").addClass("menu_cont_left");
+		else
+			menu_cont.removeClass("menu_cont_left").addClass("menu_cont_right");
 	});
 
 	$(".close_navbar").on("click", function()

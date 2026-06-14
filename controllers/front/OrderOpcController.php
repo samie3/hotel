@@ -449,6 +449,8 @@ class OrderOpcControllerCore extends ParentOrderController
 
         // SHOPPING CART
         $this->_assignSummaryInformations();
+        // Auto-accept TOS on every page load
+        $this->context->cookie->checkedTOS = 1;
         // WRAPPING AND TOS
         $this->_assignWrappingAndTOS();
 
@@ -743,6 +745,8 @@ class OrderOpcControllerCore extends ParentOrderController
         if (!$this->context->cart->id_currency) {
             return '<p class="warning">'.Tools::displayError('Error: No currency has been selected.').'</p>';
         }
+        // Auto-accept TOS so checkout is never blocked by TOS error
+        $this->context->cookie->checkedTOS = 1;
         if (!$this->context->cookie->checkedTOS && Configuration::get('PS_CONDITIONS')) {
             return '<p class="warning">'.Tools::displayError('Please accept the Terms of Service.').'</p>';
         }
@@ -1055,7 +1059,7 @@ class OrderOpcControllerCore extends ParentOrderController
     {
         $customerGuestDetail = Tools::getValue('customer_guest_detail');
         $this->context->cookie->__set('customer_details_proceeded', 0);
-        $this->context->cookie->checkedTOS = false;
+        // $this->context->cookie->checkedTOS reset removed
         if ($customerGuestDetail) {
             $customerGuestDetailErrors = array();
             $customerGuestDetailGender = Tools::getValue('customer_guest_detail_gender');

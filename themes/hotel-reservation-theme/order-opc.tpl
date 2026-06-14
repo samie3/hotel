@@ -93,7 +93,7 @@
 															</div>
 															{if $step->step_is_reachable}
 																{block name='order_opc_guest_detail_wrapper'}
-																	<div id="collapse-guest-info" class="opc-collapse {if !$step->step_is_current}collapse{/if}" aria-labelledby="guest-info-head" data-parent="#oprder-opc-accordion">
+																	<div id="collapse-guest-info" class="opc-collapse" aria-labelledby="guest-info-head" data-parent="#oprder-opc-accordion">
 																		<div class="card-body">
 																			{if $is_logged || $isGuest}
 																				{if $is_logged}
@@ -178,28 +178,26 @@
 																					</div>
 																				{/block}
 
-																				{* proceed only if no order restrict errors are there *}
-																				{if !$orderRestrictErr}
-																					{block name='order_opc_guest_detail_proceed_action'}
-																						<hr>
-																						<div class="row">
-																							<div class="col-sm-12 proceed_btn_block">
-																								<a class="btn btn-default button button-medium pull-right submit-guest-details" href="{$link->getPageLink('order-opc', null, null, ['proceed_to_payment' => 1])}" title="{if $lang_iso == 'ar'}متابعة الدفع{else}Proceed to Payment{/if}" rel="nofollow">
+																				{* Always show proceed button *}
+																				{block name='order_opc_guest_detail_proceed_action'}
+																					<hr>
+																					<div class="row">
+																						<div class="col-sm-12 proceed_btn_block">
+																							<a class="btn btn-default button button-medium pull-right" href="{$link->getPageLink('order-opc', null, null, ['proceed_to_payment' => 1])}" title="{if $lang_iso == 'ar'}متابعة الدفع{else}Proceed to Payment{/if}" rel="nofollow">
+																								<span>
+																									{if $lang_iso == 'ar'}متابعة الدفع{else}{l s='Proceed to Payment'}{/if}
+																								</span>
+																							</a>
+																							{if $isGuest}
+																								<a class="btn btn-default btn-edit-guest-info pull-right" href="#" rel="nofollow">
 																									<span>
-																										{if $lang_iso == 'ar'}متابعة{else}{l s='Proceed'}{/if}
+																										{l s='Edit'}
 																									</span>
 																								</a>
-																								{if $isGuest}
-																									<a class="btn btn-default btn-edit-guest-info pull-right" href="#" rel="nofollow">
-																										<span>
-																											{l s='Edit'}
-																										</span>
-																									</a>
-																								{/if}
-																							</div>
+																							{/if}
 																						</div>
-																					{/block}
-																				{/if}
+																					</div>
+																				{/block}
 																			{else}
 																				<!-- Create account / Guest account / Login block -->
 																				{block name='order_opc_new_account'}

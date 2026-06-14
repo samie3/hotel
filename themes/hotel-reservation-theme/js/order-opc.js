@@ -103,29 +103,16 @@ $(document).ready(function()
 	}
 	function validateCustomerGuestDetailForm() {
 		$('#customer_guest_detail_form input.validate').each(function (index, element) {
-			if (!validate_field(element)) {
-				if ($('#cgv').prop('checked') == 1) {
-					$('#cgv').trigger('click');
-				}
-			}
+			validate_field(element);
 		});
 	}
 	initGuestbookingcontainer();
-	$("#customer_guest_detail").on('change',function() {
+	$(document).on('change', '#customer_guest_detail', function() {
 		initGuestbookingcontainer();
 	});
-	if ($("#customer_guest_detail:checked").val() == 1) {
+	if ($(\"#customer_guest_detail:checked\").val() == 1) {
 		validateCustomerGuestDetailForm();
 	}
-	$(document).on('click', '.submit-guest-details', function(e) {
-		if ($('#customer_guest_detail').prop('checked')) {
-			validateCustomerGuestDetailForm();
-			e.preventDefault();
-			if ($('#customer_guest_detail_form').find('.form-error').length == 0) {
-				$('#customer_guest_detail_form').get(0).submit();
-			}
-		}
-	});
 
 	function setCustomerGuestDetailForm(guestDetail) {
 		$('#customer_guest_detail_firstname').val(guestDetail.firstname);
